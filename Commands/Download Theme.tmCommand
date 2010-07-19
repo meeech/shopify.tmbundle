@@ -7,8 +7,6 @@
 	<key>command</key>
 	<string>#!/usr/bin/env php
 &lt;?php
-//@todo Look into using ob_flush() (is that even possible with textmate/show as html?)
-//      to give users an idea of the progress?
 require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
 require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
 
@@ -21,9 +19,9 @@ $requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store);
 $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
 
 if(!is_object($response) || !property_exists($response, 'assets')) {
-    echo "Error: Assets list not returned\n";
-    echo 'Req Url:' . $requestUrl . "\n";
-    var_dump($response);
+    echo "Error: Assets list not returned. Could just be a temporary error. Feel free to try again.&lt;br&gt;";
+    echo "Req Url: {$requestUrl}";
+    // var_dump($response);
     die();
 }
 
