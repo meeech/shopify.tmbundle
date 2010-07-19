@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
+require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
+
+$selectedFiles = explode(' ',getenv('TM_SELECTED_FILES'));
+foreach ($selectedFiles as $file) {
+
+    $file = trim($file, "'");
+    if(is_dir($file)) {
+        continue;
+    }
+
+    // File path, based on theme restriction of no nested folder, so we make certain assumptions
+    $assetKey = calc_asset_key($file);
+    echo "Fetching {$assetKey}...&lt;br&gt;";
+    
+    $asset = get_asset($api_key, $password, $store, $assetKey);
+
+    if(false == $asset) { //Do Nothing.
+        echo '*Error: Could not update asset '. $assetKey .'&lt;br&gt;';
+        continue;
+    }
+
+    // clean out the \r 's - mac uses \n only. 
+    if(property_exists($asset, 'value')) {
+        $contents = str_replace("\r", '', $asset-&gt;value);
+    }
+    else if($asset &amp;&amp; property_exists($asset, 'attachment')) {
+        $contents = base64_decode($asset-&gt;attachment);
+    }
+    
+    file_put_contents(getenv('TM_PROJECT_DIRECTORY').'/'.$asset-&gt;key, $contents);
+    echo 'Updated: '.$asset-&gt;key.'&lt;br&gt;';
+}
+
+echo 'Done.';</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Update Selected Files from Shopify</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>F4AC122B-2B98-4BFF-B784-B58715F72996</string>
+</dict>
+</plist>

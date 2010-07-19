@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>D5E756C3-A250-4540-9E73-2F2EDE898E21</string>
+			<string>88738C61-48F5-4865-94E4-93D96B92428A</string>
+			<string>------------------------------------</string>
+			<string>228A0DD4-A393-4770-840E-01D5F7DA0F50</string>
+			<string>F4AC122B-2B98-4BFF-B784-B58715F72996</string>
+			<string>------------------------------------</string>
+			<string>7D611C1D-8D6B-4D0D-85D9-10A82B286760</string>
+		</array>
+		<key>submenus</key>
+		<dict/>
+	</dict>
+	<key>name</key>
+	<string>Shopify</string>
+	<key>ordering</key>
+	<array>
+		<string>D5E756C3-A250-4540-9E73-2F2EDE898E21</string>
+		<string>88738C61-48F5-4865-94E4-93D96B92428A</string>
+		<string>228A0DD4-A393-4770-840E-01D5F7DA0F50</string>
+		<string>F4AC122B-2B98-4BFF-B784-B58715F72996</string>
+		<string>7D611C1D-8D6B-4D0D-85D9-10A82B286760</string>
+	</array>
+	<key>uuid</key>
+	<string>AF27C8F0-5702-4317-82AD-63A4F55CFAAA</string>
+</dict>
+</plist>
