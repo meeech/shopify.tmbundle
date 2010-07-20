@@ -16,6 +16,7 @@ $requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/assets.json';
 $requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store);
 
 // yes, I am aware php has curl. This is just simpler.
+echo "Getting theme asset list...&lt;br&gt;";
 $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
 
 if(!is_object($response) || !property_exists($response, 'assets')) {
@@ -36,6 +37,7 @@ foreach ($response-&gt;assets as $assetInfo) {
         mkdir($folderPath);
     }
 
+    echo "Fetching {$assetInfo-&gt;key}...&lt;br&gt;";
     $asset = get_asset($api_key, $password, $store, $assetInfo-&gt;key);
     
     if(false === $asset) {
@@ -43,7 +45,6 @@ foreach ($response-&gt;assets as $assetInfo) {
     }
     
     //clean out the \r 's - mac uses \n only. 
-    //@todo text files come in as value, but other assets come in as attachment, so check propexists
     if($asset &amp;&amp; property_exists($asset, 'value')) {
         // echo 'Creating '.$folderPath.'/'.$fileinfo['basename'] .'&lt;br&gt;';
         $contents = str_replace("\r", '', $asset-&gt;value);
