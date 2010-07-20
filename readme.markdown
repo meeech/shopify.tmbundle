@@ -29,7 +29,7 @@ and
 
     * Static Variables: http://manual.macromates.com/en/environment_variables#static_variables
 
-for more info on setting up the Variables for TM
+for more info on setting up the Variables for TextMate
 
 * The Theme folder should be your Project Root. ie: drag your Theme folder onto Textmate.
 * Requires json\_decode / json\_encode functions. Built into php 5.2 + greater.
@@ -38,12 +38,12 @@ Tips
 ----
 
 * If you aren't using version control, you should. This bundle will not protect you from yourself.
-* Assign HotKeys to the various commands to suit your needs. To avoid unpleasant accidents, I only assigned a shortcut to the Send Asset to Shopify, since the other commands are used less frequently. 
+* Assign HotKeys to the various commands to suit your needs. To avoid unpleasant accidents, I only assigned a shortcut to the Send Asset to Shopify, since the other commands will generally need to be used less frequently. 
 
 About
 -----
 
-At work (Plank Design) we recently had a client who will be using Shopify. The workflow of Shopify for building themes (Copy/Paste into a textarea, upload assets via a form) was less this ideal, especially since Vision is currently not supporting any of the latest features. This solves that problem. Props to Shopify for having their API support GETting and PUTting of assets.
+At work [(Plank Design)](www.plankdesign.com) we recently had a client who will be using Shopify. The workflow of Shopify for building themes (Copy/Paste into a textarea, upload assets via a form) was less this ideal, especially since Vision is currently not supporting any of the latest features. This solves that problem. Props to Shopify for having their API support GETting and PUTting of assets.
 
 Mitchell Amihod  
 July 19, 2010.
