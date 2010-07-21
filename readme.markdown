@@ -45,7 +45,7 @@ Tips
 About
 -----
 
-At work [(Plank Design)](www.plankdesign.com) we recently had a client who will be using Shopify. The workflow of Shopify for building themes (Copy/Paste into a textarea, upload assets via a form) was less this ideal, especially since Vision is currently not supporting any of the latest features. This solves that problem. Props to Shopify for having their API support GETting and PUTting of assets.
+At work [(Plank Design)](http://www.plankdesign.com) we recently had a client who will be using Shopify. The workflow of Shopify for building themes (Copy/Paste into a textarea, upload assets via a form) was less this ideal, especially since Vision is currently not supporting any of the latest features. This solves that problem. Props to Shopify for having their API support GETting and PUTting of assets.
 
 Feedback welcome.
 
