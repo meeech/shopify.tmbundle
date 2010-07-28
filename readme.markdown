@@ -42,6 +42,16 @@ Tips
 * If you aren't using version control, you should. This bundle will not protect you from yourself.
 * Assign HotKeys to the various commands to suit your needs. To avoid unpleasant accidents, I only assigned a shortcut to the Send Asset to Shopify, since the other commands will generally need to be used less frequently. 
 
+Installation
+------------
+
+Hey. Not familiar with Git? No worries. You just need to download the bundle in a few easy steps.
+
+* Download the zip file: [http://github.com/meeech/shopify.tmbundle/zipball/master](http://github.com/meeech/shopify.tmbundle/zipball/master)
+* Unzip it
+* Rename the folder it creates for you as **shopify.tmbundle**
+* It should then appear as a regular TextMate BUndle. Double click, and TextMate should just install it. 
+
 About
 -----
 
