@@ -50,7 +50,7 @@ Hey. Not familiar with Git? No worries. You just need to download the bundle in 
 * Download the zip file: [http://github.com/meeech/shopify.tmbundle/zipball/master](http://github.com/meeech/shopify.tmbundle/zipball/master)
 * Unzip it
 * Rename the folder it creates for you as **shopify.tmbundle**
-* It should then appear as a regular TextMate BUndle. Double click, and TextMate should just install it. 
+* It should then appear as a regular TextMate Bundle. Double click, and TextMate should just install it. 
 
 About
 -----
