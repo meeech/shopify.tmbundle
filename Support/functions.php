@@ -17,7 +17,7 @@ function get_asset($api_key, $password, $store, $key) {
                 
     $response = json_decode(`curl -s -g '$requestUrl'`);
     
-    if(property_exists($response, 'asset')) {
+    if(is_object($response) && property_exists($response, 'asset')) {
         return $response->asset;
     } else {
         return false;

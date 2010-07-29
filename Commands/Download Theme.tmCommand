@@ -41,6 +41,7 @@ foreach ($response-&gt;assets as $assetInfo) {
     $asset = get_asset($api_key, $password, $store, $assetInfo-&gt;key);
     
     if(false === $asset) {
+        echo "*Error fetching: ($assetInfo-&gt;key)&lt;br&gt;";
         continue;
     }
     
