@@ -38,6 +38,7 @@ for more info on setting up the Variables for TextMate
 Tips
 ----
 
+* Get the [Liquid bundle](http://github.com/andrew/liquid-tmbundle). It helps. 
 * Really. Don't forget to set the required variables.
 * If you aren't using version control, you should. This bundle will not protect you from yourself.
 * Assign HotKeys to the various commands to suit your needs. To avoid unpleasant accidents, I only assigned a shortcut to the Send Asset to Shopify, since the other commands will generally need to be used less frequently. 
@@ -45,7 +46,9 @@ Tips
 Installation
 ------------
 
-Hey. Not familiar with Git? No worries. You just need to download the bundle in a few easy steps.
+The simplest way is to install it using the GetBundles bundle. 
+
+Otherwise you can just need to download and install the bundle in a few easy steps.
 
 * Download the zip file: [http://github.com/meeech/shopify.tmbundle/zipball/master](http://github.com/meeech/shopify.tmbundle/zipball/master)
 * Unzip it
