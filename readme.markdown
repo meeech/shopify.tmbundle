@@ -13,6 +13,8 @@ Available Commands:
 Usage
 -----
 
+For great instructions, with screenshots and everything, see the great guide on the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
+
 You need to set up the following Project Variables. (Or I suppose you could just set up some Global Vars in the Textmate Prefs. But Project Variables make more sense to me in this case) 
 
     * SHOPIFY_API_KEY
@@ -46,9 +48,11 @@ Tips
 Installation
 ------------
 
-The simplest way is to install it using the GetBundles bundle. 
+The simplest way is to install it using the GetBundles bundle. This will allow you to always have the latest version.
 
-Otherwise you can just need to download and install the bundle in a few easy steps.
+For a much better, visual guide, see the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
+
+Otherwise you can just download and install the bundle in a few easy steps.
 
 * Download the zip file: [http://github.com/meeech/shopify.tmbundle/zipball/master](http://github.com/meeech/shopify.tmbundle/zipball/master)
 * Unzip it
