@@ -54,6 +54,8 @@ echo 'Done.';
 </string>
 	<key>input</key>
 	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@U</string>
 	<key>name</key>
 	<string>Send Selected Assets to Shopify</string>
 	<key>output</key>
