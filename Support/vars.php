@@ -5,6 +5,11 @@ $api_key = getenv('SHOPIFY_API_KEY');
 $password = getenv('SHOPIFY_PASSWORD');
 $store = getenv('SHOPIFY_STORE');
 
+if((false == $api_key) || (false == $password) || (false == $store)) {
+    echo "Did you set up the Shell Variables? I can't seem to find your API Key, Password or Store.";
+    exit();
+}
+
 $imageExtensions = array('png', 'gif', 'jpg', 'jpeg');
 
 // A bit of a short cut. Would rather just work all in .json, but not sure if can PUT in .json
