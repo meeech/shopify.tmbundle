@@ -8,7 +8,7 @@ Available Commands:
 * Update Current File From Shopify : Will replace the contents of the file you are working on with the file from Shopify.
 * Update Selected Files from Shopify : Will fetch the files you have selected in the Project Window from Shopify.
 * Send Asset to Shopify ( ⌘U ): Will save the document you are working on, and upload to shopify. Used for text assets.
-* Send Selected Files to Shopify : Will upload any files you have selected in the Project Panel to Shopify. This is what you want to use to upload a bunch of files at once.
+* Send Selected Files to Shopify ( ⌘-SHIFT-U ) : Will upload any files you have selected in the Project Panel to Shopify. This is what you want to use to upload a bunch of files at once.
 
 Usage
 -----
