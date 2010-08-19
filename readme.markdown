@@ -48,7 +48,7 @@ Tips
 Installation
 ------------
 
-The simplest way is to install it using the GetBundles bundle. This will allow you to always have the latest version.
+The simplest way is to install it using the [GetBundles bundle](http://solutions.treypiepmeier.com/2009/02/25/installing-getbundles-on-a-fresh-copy-of-textmate/). This will allow you to always have the latest version. Its just a super useful bundle. I can't recommend it enough.
 
 For a much better, visual guide, see the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
 
