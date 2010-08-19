@@ -13,7 +13,7 @@ Available Commands:
 Usage
 -----
 
-For great instructions, with screenshots and everything, see the great guide on the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
+For great instructions, with screenshots and everything, see the excellent guide on the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
 
 You need to set up the following Project Variables. (Or I suppose you could just set up some Global Vars in the Textmate Prefs. But Project Variables make more sense to me in this case) 
 
