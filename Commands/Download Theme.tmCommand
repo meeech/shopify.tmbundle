@@ -28,20 +28,32 @@ if(!is_object($response) || !property_exists($response, 'assets')) {
 
 $projectDir = getenv('TM_PROJECT_DIRECTORY');
 
-foreach ($response-&gt;assets as $assetInfo) {
+//So, behaviour change: We don't want to dl the .css if there is a .css.liquid
+//So, first gather the list of all the files, weeding out the .css files we don't want
+$assetFiles = array();
+//array_reverse since assets list is in alphabetical order. we want the .css.liquid added to the array before the .css
+foreach (array_reverse($response-&gt;assets) as $assetInfo) {
+    //css filter. if its already in the list as a .liquid, skip it
+    if('css' == pathinfo($assetInfo-&gt;key, PATHINFO_EXTENSION)) {
+        if(in_array($assetInfo-&gt;key.'.liquid', $assetFiles)) { continue; }
+    }
+    $assetFiles[] = $assetInfo-&gt;key;
+}
 
-    $fileinfo = pathinfo($assetInfo-&gt;key);
+foreach ($assetFiles as $file) {
+
+    $fileinfo = pathinfo($file);
     $folderPath = $projectDir.'/'.$fileinfo['dirname'];
     
     if(!file_exists($folderPath)) {
         mkdir($folderPath);
     }
 
-    echo "Fetching {$assetInfo-&gt;key}...&lt;br&gt;";
-    $asset = get_asset($api_key, $password, $store, $assetInfo-&gt;key);
+    echo "Fetching {$file}...&lt;br&gt;";
+    $asset = get_asset($api_key, $password, $store, $file);
     
     if(false === $asset) {
-        echo "*Error fetching: ($assetInfo-&gt;key)&lt;br&gt;";
+        echo "*Error fetching: ($file)&lt;br&gt;";
         continue;
     }
     

@@ -4,7 +4,7 @@ Shopify Textmate Bundle
 Available Commands:
 -------------------
 
-* Download Theme: Will download the entire theme from Shopify. Useful when you just getting started to download the whole Theme. 
+* Download Theme: Will download the entire theme from Shopify. Useful when you just getting started to download the whole Theme, or if you are working with other, to refresh your copy.
 * Update Current File From Shopify : Will replace the contents of the file you are working on with the file from Shopify.
 * Update Selected Files from Shopify : Will fetch the files you have selected in the Project Window from Shopify.
 * Send Asset to Shopify ( ⌘U ): Will save the document you are working on, and upload to shopify. Used for text assets.
