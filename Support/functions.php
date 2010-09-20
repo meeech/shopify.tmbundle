@@ -14,9 +14,10 @@ function get_asset($api_key, $password, $store, $key) {
     $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
                     $api_key, $password, $store, $key
                 );
-                
-    $response = json_decode(`curl -s -g '$requestUrl'`);
-    
+
+    $responseTxt = `curl -s -g '$requestUrl'`;
+    $response = json_decode($responseTxt);
+
     if(is_object($response) && property_exists($response, 'asset')) {
         return $response->asset;
     } else {
