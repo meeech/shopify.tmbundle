@@ -10,7 +10,7 @@
 require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
 require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
 
-$selectedFiles = explode(' ',getenv('TM_SELECTED_FILES'));
+$selectedFiles = explode("' '",getenv('TM_SELECTED_FILES'));
 foreach ($selectedFiles as $file) {
 
     $file = trim($file, "'");
