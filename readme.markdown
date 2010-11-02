@@ -4,12 +4,16 @@ Shopify Textmate Bundle
 Available Commands:
 -------------------
 
-* Download Theme: Will download the entire theme from Shopify. Useful when you just getting started to download the whole Theme, or if you are working with other, to refresh your copy.
-* Send Asset to Shopify ( ⌘U ): Will save the document you are working on, and upload to shopify. Used for text assets.
-* Send Selected Files to Shopify ( ⌘-SHIFT-U ) : Will upload any files you have selected in the Project Panel to Shopify. This is what you want to use to upload a bunch of files at once.
-* Get Rendered CSS file from .css.liquid : Will download the rendered .css file from the .css.liquid file. See [this](http://forums.shopify.com/categories/2/posts/40499) forum post for more info about the issue.
-* Update Current File From Shopify : Will replace the contents of the file you are working on with the file from Shopify.
-* Update Selected Files from Shopify : Will fetch the files you have selected in the Project Window from Shopify.
+* **Download Theme** : Will download the entire theme from Shopify. Useful when you just getting started to download the whole Theme, or if you are working with other, to refresh your copy.
+* **Send Asset to Shopify** ( ⌘U ) : Will save the document you are working on, and upload to shopify. Used for text assets.
+* **Send Selected Files to Shopify** ( ⌘-SHIFT-U ) : Will upload any files you have selected in the Project Panel to Shopify. This is what you want to use to upload a bunch of files at once.
+* **Get Rendered CSS file from .css.liquid** : Will download the rendered .css file from the .css.liquid file. See [this](http://forums.shopify.com/categories/2/posts/40499) forum post for more info about the issue.
+* **Update Current File From Shopify** : Will replace the contents of the file you are working on with the file from Shopify.
+* **Update Selected Files from Shopify** : Will fetch the files you have selected in the Project Window from Shopify.
+* **Remove Selected Assets From Shopify** : Will remove the selected assets from Shopify server. Certain .liquid files cannot be removed (index, theme, page, product, blog, collection)   
+I didn't assign a shortcut to it to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.   
+(If people think it would be handy, could have a version of this that deletes the file locally as well. Let me know.)
+
 
 Usage
 -----

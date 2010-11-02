@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+//Replace the contents of the current file with the one from shopify.
+//Used to update a text file you are working on (ie: liquid, css, js)
+require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
+require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
+
+$selectedFiles = explode(' ',getenv('TM_SELECTED_FILES'));
+foreach ($selectedFiles as $file) {
+
+    $file = trim($file, "'");
+    if(is_dir($file)) {
+        continue;
+    }
+
+    $assetKey = calc_asset_key($file);
+    echo "Removing $assetKey... ";
+    
+    if(remove_asset($api_key, $password, $store, $assetKey)) {
+        echo "removed¡&lt;br&gt;";
+    }
+    else {
+        echo "There was a problem. Please try again.&lt;br&gt;";
+    }
+    
+}
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Remove Selected Assets from Shopify</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>B39AD969-84E3-4D70-BF1F-9895FD4EE03B</string>
+</dict>
+</plist>

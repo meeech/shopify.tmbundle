@@ -46,6 +46,29 @@ function send_asset($api_key, $password, $store ,$xmlFile) {
     return $response;
 }
 
+/**
+ * Remove an Asset from Shopify
+ *
+ * @param string $api_key
+ * @param string $password 
+ * @param string $store
+ * @param string $key Key of asset we are downloading
+ * @return object Asset / false on failure
+ **/
+function remove_asset($api_key, $password, $store, $key) {
+    //Request Asset URL Template
+    // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
+    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+                    $api_key, $password, $store, $key
+                );
+                
+    $response = json_decode(`curl -w'%{http_code}' -X DELETE -s -g '$requestUrl'`);
+
+    if($response == 200) {
+        return true;
+    } 
+    return false;
+}
 
 /**
  * Calculate the asset key from a provided filepath.
