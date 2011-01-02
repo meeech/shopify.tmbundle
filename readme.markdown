@@ -53,7 +53,7 @@ Tips
 Installation
 ------------
 
-The simplest way is to install it using the [GetBundles bundle](http://solutions.treypiepmeier.com/2009/02/25/installing-getbundles-on-a-fresh-copy-of-textmate/). This will allow you to always have the latest version. Its just a super useful bundle. I can't recommend it enough.
+The simplest way is to install it using the [GetBundles bundle](http://solutions.treypiepmeier.com/2009/02/25/installing-getbundles-on-a-fresh-copy-of-textmate/). This will allow you to always have the latest version. Its just a super useful bundle. I can't recommend it enough. 
 
 For a much better, visual guide, see the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
 
@@ -63,6 +63,8 @@ Otherwise you can just download and install the bundle in a few easy steps.
 * Unzip it
 * Rename the folder it creates for you as **shopify.tmbundle**
 * It should then appear as a regular TextMate Bundle. Double click, and TextMate should just install it. 
+
+If you don't, or can't, use GetBundles, you can always follow me ([@meeech](http://www.twitter.com/meeech)) on twitter - i'll announce updates there as well. 
 
 About
 -----
