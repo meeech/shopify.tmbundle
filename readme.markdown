@@ -11,9 +11,9 @@ Available Commands:
 * **Update Current File From Shopify** : Will replace the contents of the file you are working on with the file from Shopify.
 * **Update Selected Files from Shopify** : Will fetch the files you have selected in the Project Window from Shopify.
 * **Remove Selected Assets From Shopify** : Will remove the selected assets from Shopify server. Certain .liquid files cannot be removed (index, theme, page, product, blog, collection)   
-I didn't assign a shortcut to it to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.   
-(If people think it would be handy, could have a version of this that deletes the file locally as well. Let me know.)
+I didn't assign a shortcut to it to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
 
+(For windows usage, please see the [windows readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme-windows.markdown).
 
 Usage
 -----
@@ -48,7 +48,7 @@ Tips
 * Get the [Liquid bundle](http://github.com/andrew/liquid-tmbundle). It helps. 
 * Really. Don't forget to set the required variables.
 * If you aren't using version control, you should. This bundle will not protect you from yourself.
-* Assign HotKeys to the various commands to suit your needs. To avoid unpleasant accidents, I only assigned a shortcut to the Send Asset to Shopify, since the other commands will generally need to be used less frequently. 
+* Assign HotKeys to the various commands to suit your needs. To avoid unpleasant accidents, I only assigned a shortcut to the Send commands, since the other commands will generally need to be used less frequently. 
 
 Installation
 ------------
