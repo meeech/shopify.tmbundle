@@ -9,8 +9,20 @@
 &lt;?php
 //Replace the contents of the current file with the one from shopify.
 //Used to update a text file you are working on (ie: liquid, css, js)
-require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
-require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
+if(defined('PHP_WINDOWS_VERSION_MAJOR')){
+	define('IS_WINDOWS', true);
+	
+	$support = getenv('TM_BUNDLE_SUPPORT');
+	$support = `cygpath -w '$support'`; 
+	define('TM_BUNDLE_SUPPORT', trim($support));
+}
+else {
+	define('IS_WINDOWS', false);
+	define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
+}
+
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
 // File path, based on theme restriction of no nested folder, so we make certain assumptions
 $filepath = calc_asset_key(getenv('TM_FILEPATH')); 
@@ -18,7 +30,6 @@ $filepath = calc_asset_key(getenv('TM_FILEPATH'));
 $asset = get_asset($api_key, $password, $store, $filepath);
 
 // clean out the \r 's - mac uses \n only. 
-//@todo .text files come in as value, but other assets come in as attachment, so check propexists
 if(false !== $asset &amp;&amp; property_exists($asset, 'value')) {
     echo str_replace("\r", '', $asset-&gt;value);
 }</string>

@@ -10,6 +10,15 @@ if((false == $api_key) || (false == $password) || (false == $store)) {
     exit();
 }
 
+if(IS_WINDOWS) {
+    $project_folder = getenv('TM_PROJECT_DIRECTORY');
+    $project_folder = `cygpath -w '$project_folder'`; 
+    define('TM_PROJECT_DIRECTORY', trim($project_folder));
+} 
+else {
+	define('TM_PROJECT_DIRECTORY',getenv('TM_PROJECT_DIRECTORY'));
+}
+
 $imageExtensions = array('png', 'gif', 'jpg', 'jpeg');
 
 // A bit of a short cut. Would rather just work all in .json, but not sure if can PUT in .json

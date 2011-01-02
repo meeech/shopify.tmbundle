@@ -7,8 +7,21 @@
 	<key>command</key>
 	<string>#!/usr/bin/env php
 &lt;?php
-require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
-require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
+// This one is just for Saving and Uploading a Text based file you working on. 
+if(defined('PHP_WINDOWS_VERSION_MAJOR')){
+	define('IS_WINDOWS', true);
+	
+	$support = getenv('TM_BUNDLE_SUPPORT');
+	$support = `cygpath -w '$support'`; 
+	define('TM_BUNDLE_SUPPORT', trim($support));
+}
+else {
+	define('IS_WINDOWS', false);
+	define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
+}
+
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
 $selectedFiles = explode("' '",getenv('TM_SELECTED_FILES'));
 foreach ($selectedFiles as $file) {
@@ -22,6 +35,20 @@ foreach ($selectedFiles as $file) {
 
     //Get the extension
     $extension = pathinfo($assetKey, PATHINFO_EXTENSION);
+
+    /*
+    * Windows fix :/
+	* Very weird behaviour/bug? re: making e compat. this is why i didnt want to :/ 
+    * if I var_dump $file, I see
+	* string(92) 
+	* "C:\Documents and Settings\Plank\My Documents\test_project\assets\dupe-to-upload.gif"
+	* This string is actually only 83. So, for some reason, VD outputs the Windows path VISUALLY, but
+    * when I str_split and print_r, you see the value is actually /cygdrive/c/... path! OMFG! WTFBBQ.	 
+    * This was INSANE to track down. Maybe just peculiar to how I'm doing things / install of Cygwin/PHP ???
+    */
+    if(IS_WINDOWS) {
+        $file = trim(`cygpath -w "$file"`);
+    }
 
     if(in_array($extension, $imageExtensions)) {
         $filecontents = base64_encode(file_get_contents($file));

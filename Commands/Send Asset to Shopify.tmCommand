@@ -8,8 +8,20 @@
 	<string>#!/usr/bin/env php
 &lt;?php
 // This one is just for Saving and Uploading a Text based file you working on. 
-require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
-require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
+if(defined('PHP_WINDOWS_VERSION_MAJOR')){
+	define('IS_WINDOWS', true);
+	
+	$support = getenv('TM_BUNDLE_SUPPORT');
+	$support = `cygpath -w '$support'`; 
+	define('TM_BUNDLE_SUPPORT', trim($support));
+}
+else {
+	define('IS_WINDOWS', false);
+	define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
+}
+
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
 $assetKey = calc_asset_key(getenv('TM_FILEPATH')); 
 

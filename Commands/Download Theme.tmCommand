@@ -7,8 +7,25 @@
 	<key>command</key>
 	<string>#!/usr/bin/env php
 &lt;?php
-require_once getenv('TM_BUNDLE_SUPPORT').'/vars.php';
-require_once getenv('TM_BUNDLE_SUPPORT').'/functions.php';
+//Kinda sucks, but this will need to be in each script, as opposed to be loaded
+//Make some assumptions if running under windows. 
+//This is for compat with Environment: Cygwin generic mode, which gives us access to curl
+//I could have taken the other tact, and used the Environment: Windows native, 
+//and used php curl lib, but I suspect I would have to do some path modding anyhow. 
+if(defined('PHP_WINDOWS_VERSION_MAJOR')){
+	define('IS_WINDOWS', true);
+	
+	$support = getenv('TM_BUNDLE_SUPPORT');
+	$support = `cygpath -w '$support'`; 
+	define('TM_BUNDLE_SUPPORT', trim($support));
+}
+else {
+	define('IS_WINDOWS', false);
+	define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
+}
+
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
 //Request Asset URL Template
 // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
@@ -20,13 +37,11 @@ echo "Getting theme asset list...&lt;br&gt;";
 $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
 
 if(!is_object($response) || !property_exists($response, 'assets')) {
-    echo "Error: Assets list not returned. Could just be a temporary error. Feel free to try again.&lt;br&gt;";
+    echo "Error: Assets list not returnedd. Could just be a temporary error. Feel free to try again.&lt;br&gt;";
     echo "Req Url: {$requestUrl}";
     // var_dump($response);
     die();
 }
-
-$projectDir = getenv('TM_PROJECT_DIRECTORY');
 
 //So, behaviour change: We don't want to dl the .css if there is a .css.liquid
 //So, first gather the list of all the files, weeding out the .css files we don't want
@@ -43,7 +58,7 @@ foreach (array_reverse($response-&gt;assets) as $assetInfo) {
 foreach ($assetFiles as $file) {
 
     $fileinfo = pathinfo($file);
-    $folderPath = $projectDir.'/'.$fileinfo['dirname'];
+    $folderPath = TM_PROJECT_DIRECTORY.DIRECTORY_SEPARATOR.$fileinfo['dirname'];
     
     if(!file_exists($folderPath)) {
         mkdir($folderPath);
@@ -66,7 +81,7 @@ foreach ($assetFiles as $file) {
          $contents = base64_decode($asset-&gt;attachment);
     }
 
-    file_put_contents($folderPath.'/'.$fileinfo['basename'], $contents); 
+    file_put_contents($folderPath.DIRECTORY_SEPARATOR.$fileinfo['basename'], $contents); 
 }
 echo 'Done.';
 </string>
