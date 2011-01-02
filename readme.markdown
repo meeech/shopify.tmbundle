@@ -13,7 +13,7 @@ Available Commands:
 * **Remove Selected Assets From Shopify** : Will remove the selected assets from Shopify server. Certain .liquid files cannot be removed (index, theme, page, product, blog, collection)   
 I didn't assign a shortcut to it to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
 
-(For windows usage, please see the [windows readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme-windows.markdown).
+(For windows usage, please see the [windows readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme-windows.markdown))
 
 Usage
 -----
