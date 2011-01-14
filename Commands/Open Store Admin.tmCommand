@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+if(defined('PHP_WINDOWS_VERSION_MAJOR')){
+	define('IS_WINDOWS', true);
+	echo "Not supported for windows.";
+	return;
+}
+define('IS_WINDOWS', false);
+define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
+
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
+require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
+
+`open http://$store/admin`;</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Open Store Admin In Default Browser (Mac Only)</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>B2BA8BCA-F4A2-4F6B-8BF9-2777902BA38A</string>
+</dict>
+</plist>
