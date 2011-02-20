@@ -19,17 +19,27 @@ class mConfig {
     var $store = null;
     
     function __construct($path) {
-        
-        if(!file_exists($path)) {
-            echo "Did you set up your config file here: {$path}?";
-            exit();
-        }
-        
+
         $this->ini_path = $path;
-        $this->load($path);
+        
+        if(file_exists($path)) {
+            $this->load($path);
+        }
+        else {
+            //fallback
+            $this->api_key  = getenv('SHOPIFY_API_KEY');
+            $this->password = getenv('SHOPIFY_PASSWORD');
+            $this->store    = getenv('SHOPIFY_STORE');
+
+            if( (!$this->api_key) || (!$this->password) || (!$this->store) ) {
+                echo "No config file found here: {$path} ?";
+                echo "I can't seem to find your API Key, Password or Store.";
+                exit();
+            }
+        }
     }
     
-    
+
     /**
      * Write the .ini back
      *
@@ -46,6 +56,7 @@ class mConfig {
         
     }
     
+
 	/**
 	 * undocumented function
 	 *
@@ -71,7 +82,6 @@ class mConfig {
     public function load($path) {
         $config = parse_ini_file($path, true);
         $settings = $config[$config['use']];
-        var_dump($settings);
 
         foreach ($settings as $key => $value) {
             $this->{$key} = $value;

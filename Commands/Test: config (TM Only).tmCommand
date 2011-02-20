@@ -10,7 +10,7 @@
 
 require_once getenv('TM_BUNDLE_SUPPORT').DIRECTORY_SEPARATOR.'vars.php';
 
-//var_dump($config);</string>
+var_dump($config);</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
