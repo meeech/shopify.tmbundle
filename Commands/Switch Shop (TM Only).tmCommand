@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+source "$TM_SUPPORT_PATH/lib/bash_init.sh"
+THEOUTPUT=$("$TM_BUNDLE_SUPPORT/switch.php")
+echo $THEOUTPUT
+if [[ $THEOUTPUT == "" ]]; then
+	echo "Switched shops..."
+	rescan_project
+	exit_show_tool_tip
+fi
+exit_create_new_document
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^@</string>
+	<key>name</key>
+	<string>Switch Shop (TM Only)</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>4F6BEE2B-2211-4C0A-8244-11011E1DFA84</string>
+</dict>
+</plist>

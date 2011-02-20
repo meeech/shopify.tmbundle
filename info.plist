@@ -31,6 +31,7 @@
 			<dict>
 				<key>items</key>
 				<array>
+					<string>4F6BEE2B-2211-4C0A-8244-11011E1DFA84</string>
 					<string>B283DF3A-842E-432A-881D-548773AB9F31</string>
 				</array>
 				<key>name</key>
@@ -43,7 +44,7 @@
 					<string>C6A4CEB8-8A02-413C-8F36-C7E8F38E74C1</string>
 				</array>
 				<key>name</key>
-				<string>dev</string>
+				<string>Dev</string>
 			</dict>
 		</dict>
 	</dict>

@@ -38,22 +38,28 @@ class mConfig {
             }
         }
     }
-    
 
     /**
      * Write the .ini back
-     *
+     * @param array $data array to turn into .ini
      * @return void
      **/
-    public function save() {
-        $to_write = array('api_key', 'campaign_id');
+    public function save($data) {
         $output = '';
-        foreach ($to_write as $key) {
-            $output.= $this->_ini_line($key, $this->{$key}, true);
+        foreach ($data as $key => $value) {
+            if(is_string($value)) {
+                $output .= $this->_ini_line($key, $value, true);
+            }
+            //Assume section
+            else {
+                $output .= "\n[$key]\n";
+                foreach ($value as $shopkey => $shopvalue) {
+                    $output .= $this->_ini_line($shopkey, $shopvalue, true);
+                }
+            }
         }
-        
+
         file_put_contents($this->ini_path, $output);
-        
     }
     
 
@@ -75,12 +81,21 @@ class mConfig {
     
     
     /**
+     * Read and return the .ini 
+     *
+     * @return array
+     **/
+    function read($path) {
+        return parse_ini_file($path, true);
+    }
+    
+    /**
      * Load the config file
      *
      * @return void
      **/
     public function load($path) {
-        $config = parse_ini_file($path, true);
+        $config = $this->read($path);
         $settings = $config[$config['use']];
 
         foreach ($settings as $key => $value) {
