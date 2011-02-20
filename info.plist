@@ -21,10 +21,21 @@
 			<string>------------------------------------</string>
 			<string>EADE1373-B600-40D7-B3A2-038771F17BF3</string>
 			<string>------------------------------------</string>
+			<string>72860921-CCDC-4390-8B9A-36491BFCAE83</string>
 			<string>F11BA60E-2FFE-418D-AB08-C4A8A7249421</string>
+			<string>------------------------------------</string>
 		</array>
 		<key>submenus</key>
 		<dict>
+			<key>72860921-CCDC-4390-8B9A-36491BFCAE83</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>B283DF3A-842E-432A-881D-548773AB9F31</string>
+				</array>
+				<key>name</key>
+				<string>Config</string>
+			</dict>
 			<key>F11BA60E-2FFE-418D-AB08-C4A8A7249421</key>
 			<dict>
 				<key>items</key>
