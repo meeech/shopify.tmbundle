@@ -9,6 +9,11 @@
 include getenv('TM_BUNDLE_SUPPORT').DIRECTORY_SEPARATOR.'ui.php';
 include getenv('TM_BUNDLE_SUPPORT').DIRECTORY_SEPARATOR.'vars.php';
 
+if(!file_exists(CONFIG_FILE_PATH)) {
+    echo "You do not seem to be using a config file.";
+    exit();
+}
+
 $shops = $config->read(CONFIG_FILE_PATH);
 
 $collector = array();

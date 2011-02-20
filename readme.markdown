@@ -13,6 +13,10 @@ Available Commands:
 * **Remove Selected Assets From Shopify** : Will remove the selected assets from Shopify server. Certain .liquid files cannot be removed (index, theme, page, product, blog, collection)   
 I didn't assign a shortcut to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
 * **Open Store Admin In Default Browser (Textmate only)** Exactly what it says. 
+* **Wiki: Liquid (TM Only)**  Opens the Shopify Liquid wiki page.
+* **Switch Shop (TM Only)** Switch which shop project is pointing at. You need to be using the new config file for this functionality.
+* **New Config (TM Only)** Creates the new config file for you in your project directory. 
+* **Edit Config (TM Only)** Creates the new config file for you in your project directory. 
 
 (For windows usage, please see the [windows readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme-windows.markdown))
 
@@ -21,9 +25,13 @@ Usage
 
 For great instructions, with screenshots and everything, see the excellent guide on the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
 
-* Create a new folder, and in there, create the file ".shopify-tmbundle"
-* Open that file, and run "Init Config" from the bundle menu. That will set up the file for you to edit
-* Add your info: api_key, password, and shop info to the file.
+The bundle now supports multiple shops, so you could have your config info for your Dev shop, and your Live shop, and easily switch between them. 
+
+* Create a new folder in your OS where you'd like to store your project assets and other files
+  * Create a new file inside of the folder. 
+  * Open that project folder in TextMate and open the new file, then go to Bundles > Shopify > Config > New Config. This will create the file `.shopify-tmbundle` in your folder.
+  * Fill it in with your shop details.   
+  * You can edit your configs at any time using Shopify > Config > Edit Config
 * The Theme folder should be your Project Root. ie: drag your Theme folder onto Textmate.
 * Here's a short video of how to use [Download Theme](http://www.vimeo.com/13472939)
 * Requires json\_decode / json\_encode functions. Built into php 5.2 + greater.
