@@ -21,24 +21,9 @@ Usage
 
 For great instructions, with screenshots and everything, see the excellent guide on the [Shopify wiki](http://wiki.shopify.com/Shopify_Textmate_Bundle).
 
-You need to set up the following Project Variables. (Or I suppose you could just set up some Global Vars in the Textmate Prefs. But Project Variables make more sense to me in this case) 
-
-    * SHOPIFY_API_KEY
-    * SHOPIFY_PASSWORD
-    * SHOPIFY_STORE
-
-You can get the info for how to get the values for those variables here: http://wiki.shopify.com/Private_apps
-
-See 
-
-    * Project Dependent Variables: http://manual.macromates.com/en/environment_variables#project_dependent_variables 
-
-and 
-
-    * Static Variables: http://manual.macromates.com/en/environment_variables#static_variables
-
-for more info on setting up the Variables for TextMate
-
+* Create a new folder, and in there, create the file ".shopify-tmbundle"
+* Open that file, and run "Init Config" from the bundle menu. That will set up the file for you to edit
+* Add your info: api_key, password, and shop info to the file.
 * The Theme folder should be your Project Root. ie: drag your Theme folder onto Textmate.
 * Here's a short video of how to use [Download Theme](http://www.vimeo.com/13472939)
 * Requires json\_decode / json\_encode functions. Built into php 5.2 + greater.

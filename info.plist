@@ -21,9 +21,20 @@
 			<string>------------------------------------</string>
 			<string>EADE1373-B600-40D7-B3A2-038771F17BF3</string>
 			<string>------------------------------------</string>
+			<string>F11BA60E-2FFE-418D-AB08-C4A8A7249421</string>
 		</array>
 		<key>submenus</key>
-		<dict/>
+		<dict>
+			<key>F11BA60E-2FFE-418D-AB08-C4A8A7249421</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>C6A4CEB8-8A02-413C-8F36-C7E8F38E74C1</string>
+				</array>
+				<key>name</key>
+				<string>dev</string>
+			</dict>
+		</dict>
 	</dict>
 	<key>name</key>
 	<string>Shopify</string>
