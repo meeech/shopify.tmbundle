@@ -11,7 +11,7 @@ Available Commands:
 * **Update Current File From Shopify** : Will replace the contents of the file you are working on with the file from Shopify.
 * **Update Selected Files from Shopify** : Will fetch the files you have selected in the Project Window from Shopify.
 * **Remove Selected Assets From Shopify** : Will remove the selected assets from Shopify server. Certain .liquid files cannot be removed (index, theme, page, product, blog, collection)   
-I didn't assign a shortcut to it to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
+I didn't assign a shortcut to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
 * **Open Store Admin In Default Browser (Textmate only)** Exactly what it says. 
 
 (For windows usage, please see the [windows readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme-windows.markdown))

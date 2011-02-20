@@ -18,8 +18,6 @@ exit_create_new_document
 </string>
 	<key>input</key>
 	<string>none</string>
-	<key>keyEquivalent</key>
-	<string>^@</string>
 	<key>name</key>
 	<string>Switch Shop (TM Only)</string>
 	<key>output</key>

@@ -14,8 +14,6 @@ mate "$TM_PROJECT_DIRECTORY/.shopify-tmbundle"
 </string>
 	<key>input</key>
 	<string>none</string>
-	<key>keyEquivalent</key>
-	<string>^@</string>
 	<key>name</key>
 	<string>New Config (TM Only)</string>
 	<key>output</key>
