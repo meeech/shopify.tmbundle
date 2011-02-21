@@ -1,1 +1,149 @@
-foo
+<!DOCTYPE html>
+<html>
+<head>
+<title>shopify.tmbundle</title>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css&3.3.0/build/cssgrids/grids-min.css">
+<style type="text/css" media="screen">
+body {
+    font-size: 0.8em;
+    margin: auto;
+    width: 600px;
+}
+
+h1,h2,h3,h4 {
+    font-family: 'Crimson Text','Times New Roman', serif;    
+    margin: 0;
+}
+
+h1 { font-size: 3.0em;}
+h2 { font-size: 1.8em; padding: 8px 0; }
+h3 { font-size: 1.5em; }
+p { font-size: 1.3em; font-family: 'Crimson Text','Times New Roman', serif; }
+
+#header h1 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 9em;
+    font-weight: 900;
+    line-height: 0.6em;
+    padding-top: 30px;    
+    margin: 50px 0 80px 0;
+    letter-spacing: -0.1em;
+    word-spacing: 0;
+}
+
+#header h1 small {
+    font-size: .5em;
+    letter-spacing: -0.05em;    
+}
+
+#content {
+    font-family: 'Crimson Text', serif;    
+    font-size: 1.6em;
+    padding: 0 40px;
+}
+
+.addendum {
+    font-size: .7em;
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+ul {
+    margin: 0;
+    padding: 0;    
+}
+
+ul li {
+    list-style: none;
+}
+
+#content {
+    position: relative;
+}
+
+#nav {
+    float: right;
+    padding-left: 10px;
+}
+
+/** {
+    border: 1px solid red;
+}
+*/
+</style>
+
+<script type="text/javascript">
+   WebFontConfig = {
+     google: { families: [ 'Crimson Text' ] }
+   };
+ </script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+ <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-21556252-1']);
+   _gaq.push(['_setDomainName', 'none']);
+   _gaq.push(['_setAllowLinker', true]);
+   _gaq.push(['_trackPageview']);
+
+   (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+
+ </script>
+</head>
+<body>
+    <a href="https://github.com/meeech/shopify.tmbundle/"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://assets1.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_gray_6d6d6d.png&path=" alt="Fork me on GitHub"></a>
+<div class="yui3-g">
+    <div id="header" class="yui3-u-1">
+        <h1>shopify<small>.tmbundle</small></h1>
+    </div>
+    <div class="yui3-u-1">
+        <div id="content">
+            <ul id="nav" class="right">
+                <li><a href="#started">getting started</a></li>
+                <li><a href="#help">help</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+
+            <p>Hello.</p>
+            <p>Shopify.tmbundle will let you work with your Shopify themes using TextMate. No more copy-paste-submit, among other advantages.</p> 
+            <p>If you're looking to work with your <a href="http://www.shopify.com/?ref=meeech">Shopify</a> themes in <a href="http://macromates.com/">TextMate</a>, you've come to the right place.</p>
+
+            <h2 id="started">Getting Started</h2>
+            <p>There's a few ways to install the bundle:</p>
+            <p>The simplest way is to install it using the <a href="http://solutions.treypiepmeier.com/2009/02/25/installing-getbundles-on-a-fresh-copy-of-textmate/">GetBundles bundle</a>. This will allow you to always have the latest version. It's just a super useful bundle.</p> 
+            <p>For a good visual guide, see the <a href="http://wiki.shopify.com/Shopify_Textmate_Bundle">Shopify wiki</a>.</p> 
+            <p>Otherwise you can just download and install the bundle in a few easy steps.</p> 
+
+            <ul> 
+                <li><a href="https://github.com/meeech/shopify.tmbundle/zipball/master">Download</a> the zip file</li> 
+                <li>Unzip it</li> 
+                <li>Rename the folder it creates for you as <strong>shopify.tmbundle</strong></li> 
+                <li>It should then appear as a regular TextMate Bundle. Double click, and TextMate should just install it.</li> 
+            </ul>
+            
+            <h2 id="help">Help & Resources</h2>
+            <ul>
+                <li>The Shopify Wiki <a href="http://wiki.shopify.com/Shopify_Textmate_Bundle" title="Shopify Textmate Bundle - Shopify Wiki">page</a></li>
+                <li>This <a href="http://forums.shopify.com/categories/1/posts/40044" title="TextMate Shopify Bundle">Shopify forum thread</a> devoted to the bundle</li>
+                <li>Bug? Something not working properly? Open a <a href="https://github.com/meeech/shopify.tmbundle/issues">ticket</a> on github. Maybe <a href="https://github.com/meeech/shopify.tmbundle/issues/closed">someone</a> else has had your problem github?</li>
+                <li>The <a href="https://github.com/meeech/shopify.tmbundle#readme">the readme</a> has some tips</li>
+            </ul>
+            
+            <h2 id="contact">Contact</h2>
+            <p>You can <a href="http://www.twitter.com/meeech">@meeech</a> on Twitter (that's with 3 e's :) ), or message me on GitHub.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
