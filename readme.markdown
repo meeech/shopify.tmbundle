@@ -16,7 +16,7 @@ I didn't assign a shortcut to avoid accidents, but CTRL-SHIFT-R is a good one if
 * **Wiki: Liquid (TM Only)**  Opens the Shopify Liquid wiki page.
 * **Switch Shop (TM Only)** Switch which shop project is pointing at. You need to be using the new config file for this functionality.
 * **New Config (TM Only)** Creates the new config file for you in your project directory. 
-* **Edit Config (TM Only)** Creates the new config file for you in your project directory. 
+* **Edit Config (TM Only)** Edit your config file .
 
 (For windows usage, please see the [windows readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme-windows.markdown))
 
@@ -29,7 +29,7 @@ The bundle now supports multiple shops, so you could have your config info for y
 
 * Create a new folder in your OS where you'd like to store your project assets and other files
   * Create a new file inside of the folder. 
-  * Open that project folder in TextMate and open the new file, then go to Bundles > Shopify > Config > New Config. This will create the file `.shopify-tmbundle` in your folder.
+  * Open that project folder in TextMate and open the new file, then go to Bundles > Shopify > Config > New Config. This will create the file `.shopify-tmbundle` in your folder. (You might not see it, since files beginning with `.` are hidden depending on your settings.)
   * Fill it in with your shop details.   
   * You can edit your configs at any time using Shopify > Config > Edit Config
 * The Theme folder should be your Project Root. ie: drag your Theme folder onto Textmate.
