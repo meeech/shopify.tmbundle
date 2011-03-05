@@ -5,6 +5,13 @@ These instructions are specific using Shopify Textmate bundle with [E-texteditor
 
 For more general bundle usage instructions, please see the [readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme.markdown).
 
+Download
+--------
+
+https://github.com/meeech/shopify.tmbundle/zipball/v1.0.5
+
+1.0.5 is the last known working version for e-texteditor. 
+
 My Setup
 --------
 
