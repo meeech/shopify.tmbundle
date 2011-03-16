@@ -37,7 +37,7 @@ echo "Getting theme asset list...&lt;br&gt;";
 $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
 
 if(!is_object($response) || !property_exists($response, 'assets')) {
-    echo "Error: Assets list not returnedd. Could just be a temporary error. Feel free to try again.&lt;br&gt;";
+    echo "Error: Assets list not returned. Could just be a temporary error. Feel free to try again.&lt;br&gt;";
     echo "Req Url: {$requestUrl}";
     // var_dump($response);
     die();
