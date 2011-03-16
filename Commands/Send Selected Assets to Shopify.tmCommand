@@ -23,6 +23,8 @@ else {
 require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
 require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
+echo "&lt;h2&gt;Sending to {$config-&gt;current}&lt;/h2&gt;&lt;h3&gt;{$store}&lt;/h3&gt;";
+
 $selectedFiles = explode("' '",getenv('TM_SELECTED_FILES'));
 foreach ($selectedFiles as $file) {
 
@@ -71,7 +73,7 @@ foreach ($selectedFiles as $file) {
         // Not ideal, but it works. Problem (though not much of one ): 
         // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
         // Will robustify if it becomes an issue. 
-        echo "*Error: Could not upload {$assetKey}.&lt;br&gt;" ;
+        echo "*Error: Could not upload {$assetKey} to {$config-&gt;current}.&lt;br&gt;" ;
         echo "{$response}&lt;br&gt;";
     }
     //And clean up

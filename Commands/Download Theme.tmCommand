@@ -55,6 +55,8 @@ foreach (array_reverse($response-&gt;assets) as $assetInfo) {
     $assetFiles[] = $assetInfo-&gt;key;
 }
 
+echo "&lt;h2&gt;Updating from {$config-&gt;current}&lt;/h2&gt;&lt;h3&gt;{$store}&lt;/h3&gt;";
+
 foreach ($assetFiles as $file) {
 
     $fileinfo = pathinfo($file);

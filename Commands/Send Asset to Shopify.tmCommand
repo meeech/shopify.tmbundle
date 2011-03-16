@@ -41,12 +41,12 @@ file_put_contents($xmlFile, $reqData);
 $response = send_asset($api_key, $password, $store ,$xmlFile);
 
 if('200' == $response) {
-    echo "Uploaded {$assetKey}.";
+    echo "Uploaded {$assetKey} to {$config-&gt;current}.";
 } else {
     // Not ideal, but it works. Problem (though not much of one ): 
     // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
     // Will robustify if it becomes an issue. 
-    echo "*Error: Could not upload {$assetKey}." ;
+    echo "*Error: Could not upload {$assetKey} to {$config-&gt;current}." ;
 }
 //And clean up
 unlink($xmlFile);</string>

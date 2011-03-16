@@ -24,6 +24,8 @@ else {
 require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
 require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
+echo "&lt;h2&gt;Remove from {$config-&gt;current}&lt;/h2&gt;&lt;h3&gt;{$store}&lt;/h3&gt;";
+
 $selectedFiles = explode("' '",getenv('TM_SELECTED_FILES'));
 foreach ($selectedFiles as $file) {
 

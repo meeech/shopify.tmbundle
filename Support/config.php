@@ -18,6 +18,9 @@ class mConfig {
     
     var $store = null;
     
+    //Used to output to user what shop they are pushing to. Reads better than full shop name.
+    var $current = 'default';
+    
     function __construct($path) {
 
         $this->ini_path = $path;
@@ -96,6 +99,9 @@ class mConfig {
      **/
     public function load($path) {
         $config = $this->read($path);
+
+        $this->current = $config['use'];
+
         $settings = $config[$config['use']];
 
         foreach ($settings as $key => $value) {
