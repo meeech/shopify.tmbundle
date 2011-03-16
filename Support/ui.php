@@ -4,9 +4,13 @@
 * UI
 *
 * UI Layer to call up TM alerts, dialogs
-* 
-* NIB related code not exactly working - still needs more r&d, but the simpler
-* UI dialogs, menus are working
+*
+* port of ui.rb stuff that comes with TM
+*
+* @todo @note
+* Till we can figure out how to encapsulate this with PHP, 
+* we have to get user input using bash script
+* see Template: New
 */
 class UI {
 
@@ -63,22 +67,180 @@ class UI {
         return $response;
     }
 
+
     /**
      * Generate a popup menu 
      * Can specify what it inserts. Otherwise, not sure about the use here. 
      * Good for autocomplete
-     * 
+     *
+     * @param array $opts expects $opts = array(array('display'=>'display name', 'insert'=>'to_insert)...)
      * @return null No response - it writes out to the document you are editing.
+     * @todo incorporate --returnChoice however, return choice still sees the selection inserted, so
+     *          could be a problem which devalues its usefulness for now
      **/
-    public function popup() {
-        // $opt = array();
-        // foreach ($items as $value) {
-        //     $opt[] = '{title = "'.$value.'";}';
-        // }
-        // $optstring = '('.implode(',', $opt) .')';
+    public function popup($opts) {
         
-        $optstring = '( { display = law; }, { display = laws; insert = "(${1:hello}, ${2:again})"; } )';
+        $opt = array();
+        foreach ($opts as $option) {
+            if(is_array($option)) {
+                $item =  '{display = "'.$option['display'].'"; insert='.$option['insert'].';}';
+            } else {
+                $item =  '{display = "'.$option.'";}';
+            }
+            
+            $opt[] = $item;
+        }
+        $optstring = '('.implode(',', $opt) .')';
+        
+        // $optstring = '( { display = law; }, { display = laws; insert = "(${1:hello}, ${2:again})"; } )';
         `{$this->dialog} popup --suggestions '{$optstring}'`;
     }
 
+
+    /**
+     * Present user with a input dialog
+     *
+     * @param array $options title, prompt, default, buttons
+     * @param bool $secure Use the password style input or regular.
+     * @return string
+     **/
+    public function input($options = array(), $secure = false) {
+        //
+        $default = array(
+            'title' => 'UI - Title',
+            'prompt' => 'Prompt Placeholder!',
+            'default' => '',
+            'buttons' => array('Ok', 'Cancel')
+        );
+        
+        $options = $options + $default;
+
+        $plist = Escape::sh($this->plistCreate($options));
+        
+        // Can repurp for secure input as well.
+        $nibType = (false == $secure) ? 'RequestString' : 'RequestSecureString';
+        $result = `{$this->dialog} -cmp {$plist} "{$nibType}"`;
+
+        //@todo see if we can remove duping of stuff between input and requestItems
+        $xml = new SimpleXMLElement($result);
+        $selection = '';
+        if(property_exists($xml->dict, 'dict')) {
+            $selection = (string)$xml->dict->dict->string;
+        }
+        return $selection;
+    }
+
+
+    /**
+     * requestItem
+     *
+     * Wrapper for the modal select item dialog.
+     *
+     * notes:
+     *
+     * In textmate shared support/ lib/ ui.rb
+     * can write out example of plist
+     * File.open("/Users/mitch/plist.txt", 'w') {|f| f.write(params.to_plist) }
+     * File.open("/Users/mitch/plist2.txt", 'w') {|f| f.write(e_sh params.to_plist) }
+     *
+     * So, next step, to figure out how to generate plist via php. maybe 
+     * write custom one? basically, xml, but needs to have things like linebreaks converted. 
+     * can maybe pass through TM libs? or can just make a simple template and drop the info in?
+     * tbd - needs some more experimentation
+     *
+     * @requires Escape class
+     * @param array $options Options for the request dialog. title, prompt, items (array), buttons (array)
+     * @return string
+     **/
+    public function requestItem($options = array()) {
+
+        $default = array(
+            'title' => 'Select an item',
+            'prompt' => 'Choose well!',
+            'items' => array(),
+            'buttons' => array('Ok', 'Cancel') //Up to 3!
+        );
+        
+        $options = $options + $default;
+
+        $plist = $this->plistCreate($options);
+        
+        $plist = Escape::sh($plist);
+        $result = `{$this->dialog} -cmp {$plist} "RequestItem"`;
+
+        $xml = new SimpleXMLElement($result);
+
+        //@todo more error checking/buttons
+        $selection = '';
+        if(property_exists($xml->dict, 'dict')) {
+            $selection = (string)$xml->dict->dict->array->string;
+        }
+        return $selection;
+    }
+    
+    
+    /**
+     * Used to generate the plist required by the nib stuff
+     *.The TM/ui.rb seems to rely on OSX::PropertyList which is a bundle found
+     * here:ENV['TM_SUPPORT_PATH'] + '/lib/osx/plist'
+     * However, OSX::PropertyList seems to be a ruby thing, so not sure 
+     * if can even use the bundle in php. From what I see, 
+     * it looks like python has its own writer - it doesnt use OSX:: either
+     *
+     * @param array of the options for the plist
+     * @return string
+     **/
+    public function plistCreate($options = array()) {
+
+        $items = '';
+        
+        if(!empty($options['items'])) {
+            $items .= "<key>items</key>\n";
+        	
+            $collector = array();
+            foreach ($options['items'] as $item) {
+                $collector[] = "<string>{$item}</string>";
+            }
+            
+            $items .= '<array>'.implode("\n", $collector)."</array>\n";
+        }
+
+        $buttons = array();
+        foreach ($options['buttons'] as $index =>$button) {
+            $index = 1+$index;
+            $buttons[] = "<key>button{$index}</key>\n<string>{$button}</string>";
+        }
+        $buttons = implode("\n", $buttons);
+        
+        $default_value = '';
+        if(isset($options['default'])) {
+            $default_value = $options['default'];
+        }
+        
+$pTemplate = <<<HTML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    {buttons}
+    {items}
+	<key>prompt</key>
+	<string>{prompt}</string>
+	<key>string</key>
+	<string>{default}</string>
+	<key>title</key>
+	<string>{title}</string>
+</dict>
+</plist>
+HTML;
+
+        $output = str_replace(
+            array('{title}','{prompt}','{items}', '{buttons}', '{default}'), 
+            array($options['title'], $options['prompt'],$items, $buttons, $default_value), 
+            $pTemplate);
+        
+        return $output;
+
+    }
+    
 }
