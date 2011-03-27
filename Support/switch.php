@@ -6,7 +6,7 @@
  * @author Mitchell Amihod
  */
  
-include getenv('TM_BUNDLE_SUPPORT').DIRECTORY_SEPARATOR.'ui.php';
+include getenv('TM_BUNDLE_SUPPORT').DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'ui.php';
 include getenv('TM_BUNDLE_SUPPORT').DIRECTORY_SEPARATOR.'vars.php';
 
 if(!file_exists(CONFIG_FILE_PATH)) {
