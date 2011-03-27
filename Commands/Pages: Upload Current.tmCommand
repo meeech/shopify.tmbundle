@@ -14,11 +14,13 @@ source "$TM_SUPPORT_PATH/lib/bash_init.sh"
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
-	<string>^$</string>
+	<string>@u</string>
 	<key>name</key>
 	<string>Pages: Upload Current</string>
 	<key>output</key>
-	<string>openAsNewDocument</string>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.html</string>
 	<key>uuid</key>
 	<string>C0D7D377-EB59-4880-AF04-9D7A3F6AC7DA</string>
 </dict>
