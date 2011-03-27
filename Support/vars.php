@@ -19,7 +19,8 @@ else {
 
 $imageExtensions = array('png', 'gif', 'jpg', 'jpeg');
 
-// A bit of a short cut. Would rather just work all in .json, but not sure if can PUT in .json
+// Ok, api has updated so you can PUT in json, but really no value in re-writing everything
+// so sticking with xml till i have a compelling reason to switch yah? (hate for XML doesn't count as compelling :/ )
 // %1: Data. , %2: ASSET NAME
 $xmlDataTemp = '<?xml version="1.0" encoding="UTF-8"?>
 <asset>
