@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>nop</string>
+	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 # Setting up new framework based on what i've learnt working on a new project
 # this file is just a test for it
 source "$TM_SUPPORT_PATH/lib/bash_init.sh"
-"$TM_BUNDLE_SUPPORT/runner.php" pages download_all
-rescan_project</string>
+"$TM_BUNDLE_SUPPORT/runner.php" pages upload
+</string>
 	<key>input</key>
 	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^$</string>
 	<key>name</key>
-	<string>Pages: Download All</string>
+	<string>Pages: Upload Current</string>
 	<key>output</key>
-	<string>showAsHTML</string>
+	<string>openAsNewDocument</string>
 	<key>uuid</key>
-	<string>6EDAABCD-338D-4863-A34F-A16290513371</string>
+	<string>C0D7D377-EB59-4880-AF04-9D7A3F6AC7DA</string>
 </dict>
 </plist>
