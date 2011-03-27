@@ -13,8 +13,6 @@ source "$TM_SUPPORT_PATH/lib/bash_init.sh"
 </string>
 	<key>input</key>
 	<string>none</string>
-	<key>keyEquivalent</key>
-	<string>^$</string>
 	<key>name</key>
 	<string>Test: New Framework</string>
 	<key>output</key>
