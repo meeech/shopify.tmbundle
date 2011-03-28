@@ -25,5 +25,7 @@ foreach ($response->pages as $page) {
 
     //Here's where shit gets fun... just learnt about xattr
     `xattr -w id "{$page->id}" {$page_file_name}`;
+    `xattr -w title "{$page->title}" {$page_file_name}`;
+    `xattr -w template_suffix "{$page->template_suffix}" {$page_file_name}`;
 }
 echo 'Done.';
