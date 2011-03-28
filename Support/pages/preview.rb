@@ -2,6 +2,8 @@
 require 'rubygems'
 require 'liquid'
 
+require ENV['TM_BUNDLE_SUPPORT']+"/liquid/filters.rb"
+
 # Inner liquid template
 liquid_template = File.read( ENV['TM_PROJECT_DIRECTORY'] + "/templates/page.liquid" )
 
@@ -13,6 +15,7 @@ inner_content = Liquid::Template.parse(liquid_template).render(content)
 # Need to figure out how to respect the layout set in the inner content
 layout_template = File.read( ENV['TM_PROJECT_DIRECTORY'] + "/layout/theme.liquid" )
 
+Liquid::Template.register_filter ShopFilter
 final_content = Liquid::Template.parse(layout_template).render({'content_for_layout'=>inner_content})
 
 puts final_content
