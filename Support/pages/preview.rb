@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 require 'rubygems'
+
+if Gem.available?('liquidx') === false
+  puts "This feature requires the Ruby Gem liquid be installed.<br>"
+  puts "Please see:<br>"
+  puts "https://rubygems.org/gems/liquid"
+  exit
+end
+
 require 'liquid'
 
 require ENV['TM_BUNDLE_SUPPORT']+"/liquid/filters.rb"
