@@ -14,6 +14,8 @@ Available Commands:
 I didn't assign a shortcut to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
 * **Pages: Download All** Downloads all pages to a folder called Pages. 
 * **Pages: Upload Current** Upload the current Page.html you are working on ( ⌘U )
+* **Pages: Preview Current** Previews the current page. Requires you have the Liquid gem installed.  
+(Experimental! :D) Not quite perfect yet, but it's working. Have a go at it. 
 * **Open Store Admin In Default Browser (Textmate only)** Exactly what it says. 
 * **Wiki: Liquid (TM Only)**  Opens the Shopify Liquid wiki page.
 * **Switch Shop (TM Only)** Switch which shop project is pointing at. You need to be using the new config file for this functionality.
