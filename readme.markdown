@@ -12,6 +12,8 @@ Available Commands:
 * **Update Selected Files from Shopify** : Will fetch the files you have selected in the Project Window from Shopify.
 * **Remove Selected Assets From Shopify** : Will remove the selected assets from Shopify server. Certain .liquid files cannot be removed (index, theme, page, product, blog, collection)   
 I didn't assign a shortcut to avoid accidents, but CTRL-SHIFT-R is a good one if you need one.
+* **Pages: Download All** Downloads all pages to a folder called Pages. 
+* **Pages: Upload Current** Upload the current Page.html you are working on ( ⌘U )
 * **Open Store Admin In Default Browser (Textmate only)** Exactly what it says. 
 * **Wiki: Liquid (TM Only)**  Opens the Shopify Liquid wiki page.
 * **Switch Shop (TM Only)** Switch which shop project is pointing at. You need to be using the new config file for this functionality.
