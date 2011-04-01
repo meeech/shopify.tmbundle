@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'rubygems'
 
-if Gem.available?('liquidx') === false
+if Gem.available?('liquid') === false
   puts "This feature requires the Ruby Gem liquid be installed.<br>"
   puts "Please see:<br>"
   puts "https://rubygems.org/gems/liquid"
