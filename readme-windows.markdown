@@ -10,7 +10,7 @@ Download
 
 https://github.com/meeech/shopify.tmbundle/zipball/v1.0.5
 
-1.0.5 is the last known working version for e-texteditor. 
+**1.0.5 is the last known working version for e-texteditor. **
 
 My Setup
 --------
