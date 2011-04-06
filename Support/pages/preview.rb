@@ -32,7 +32,7 @@ final_content = Liquid::Template.parse(layout_template).render({
     'content_for_layout'=>inner_content,
     'template' => 'page',
     'page' => {
-      'title' => `xattr -p title #{ENV['TM_FILEPATH']}`
+      'title' => `xattr -p title "#{ENV['TM_FILEPATH']}"`
     }
 })
 

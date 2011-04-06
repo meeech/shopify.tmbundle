@@ -1,7 +1,7 @@
 <?php
 $file_to_up = getenv('TM_FILEPATH');
 //Trim to remove the \n, \r
-$page_id = (int)trim(`xattr -p id {$file_to_up}`);
+$page_id = (int)trim(`xattr -p id "{$file_to_up}"`);
 $page = array('page' => array(
     'body_html' => file_get_contents($file_to_up)
 ));
