@@ -15,6 +15,11 @@ if Gem.available?('json') === false
   exit
 end
 
+unless File.exists?(ENV['TM_PROJECT_DIRECTORY'] + "/.shop-cache.json")
+  `source "#{ENV['TM_SUPPORT_PATH']}/lib/bash_init.sh"`
+  `"#{ENV['TM_BUNDLE_SUPPORT']}/runner.php" shop cache`
+end 
+
 require 'liquid'
 require 'json'
 
@@ -35,17 +40,21 @@ inner_content = Liquid::Template.parse(liquid_template).render(content)
 # Load Template Variables from Cache
 cached_shop_data = JSON.parse(File.read(ENV['TM_PROJECT_DIRECTORY'] + "/.shop-cache.json"))
 
-puts cached_shop_data.inspect
+# puts cached_shop_data.inspect
 
 # Need to figure out how to respect the layout set in the inner content
 layout_template = File.read( ENV['TM_PROJECT_DIRECTORY'] + "/layout/theme.liquid" )
+
+# Template variable page_title as well as page.title
+page_title = `xattr -p title "#{ENV['TM_FILEPATH']}"`
 
 Liquid::Template.register_filter ShopFilter
 final_content = Liquid::Template.parse(layout_template).render({
     'content_for_layout'=>inner_content,
     'template' => 'page',
+    'page_title' => page_title,
     'page' => {
-      'title' => `xattr -p title "#{ENV['TM_FILEPATH']}"`
+      'title' => page_title
     }, 
     'shop' => cached_shop_data['shop']
 })
