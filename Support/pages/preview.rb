@@ -2,13 +2,21 @@
 require 'rubygems'
 
 if Gem.available?('liquid') === false
-  puts "This feature requires the Ruby Gem liquid be installed.<br>"
+  puts "This feature requires the Ruby Gem Liquid be installed.<br>"
   puts "Please see:<br>"
   puts "https://rubygems.org/gems/liquid"
   exit
 end
 
+if Gem.available?('json') === false
+  puts "This feature requires the Ruby Gem JSON be installed.<br>"
+  puts "Please see:<br>"
+  puts "https://rubygems.org/gems/json"
+  exit
+end
+
 require 'liquid'
+require 'json'
 
 require ENV['TM_BUNDLE_SUPPORT']+"/liquid/filters.rb"
 

@@ -15,7 +15,7 @@
 function get_json($which, $api_key, $password, $store) {
     $requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/%4$s.json';
     $requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store, $which);
-    $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
+    $response = `curl --connect-timeout 20 -s -g '$requestUrl'`;
     return $response;
 }
 
