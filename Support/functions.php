@@ -1,4 +1,24 @@
 <?php
+
+
+/**
+ * Generalized get_json function. 
+ * Start swapping it in 
+ *
+ * @param string $which Which resource
+ * @param string $api_key
+ * @param string $password 
+ * @param string $store
+ *
+ * @return array
+ **/
+function get_json($which, $api_key, $password, $store) {
+    $requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/%4$s.json';
+    $requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store, $which);
+    $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
+    return $response;
+}
+
 /**
  * Request an Asset from Shopify
  *
