@@ -9,14 +9,22 @@
 // page_title
 // template
 
+//Start with Shop Info
 $shop_info = json_decode(get_json('shop', $config->api_key, $config->password, $config->store));
 
-$custom_collections = json_decode(get_json('custom_collections', $config->api_key, $config->password, $config->store));
+// $custom_collections = json_decode(get_json('custom_collections', $config->api_key, $config->password, $config->store));
 
 //affix products to custom_collections
 
-var_dump($custom_collections);
+// var_dump($custom_collections);
+
+$cache = array();
+
+// Fixes for expected variable values: http://wiki.shopify.com/Shop#shop.url
+$shop_info->shop->url = $shop_info->shop->domain;
 
 
-// $shop_cache_file = TM_PROJECT_DIRECTORY.DIRECTORY_SEPARATOR.'.shop-cache.json';
-// file_put_contents($shop_cache_file, json_encode($allinfo));
+$cache['shop'] = $shop_info->shop;
+var_dump($cache);
+$shop_cache_file = TM_PROJECT_DIRECTORY.DIRECTORY_SEPARATOR.'.shop-cache.json';
+file_put_contents($shop_cache_file, json_encode($cache));

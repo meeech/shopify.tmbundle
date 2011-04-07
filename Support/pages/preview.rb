@@ -32,6 +32,11 @@ content = {
 
 inner_content = Liquid::Template.parse(liquid_template).render(content)
 
+# Load Template Variables from Cache
+cached_shop_data = JSON.parse(File.read(ENV['TM_PROJECT_DIRECTORY'] + "/.shop-cache.json"))
+
+puts cached_shop_data.inspect
+
 # Need to figure out how to respect the layout set in the inner content
 layout_template = File.read( ENV['TM_PROJECT_DIRECTORY'] + "/layout/theme.liquid" )
 
@@ -41,7 +46,8 @@ final_content = Liquid::Template.parse(layout_template).render({
     'template' => 'page',
     'page' => {
       'title' => `xattr -p title "#{ENV['TM_FILEPATH']}"`
-    }
+    }, 
+    'shop' => cached_shop_data['shop']
 })
 
 puts final_content
