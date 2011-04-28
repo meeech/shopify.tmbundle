@@ -2,7 +2,7 @@
 
 echo "<h2>Downloading all pages from<br>{$config->store}</h2>";
 
-$requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/pages.json';
+$requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/pages.json?limit=250';
 $requestUrl = sprintf($requestUrlTemp, $config->api_key, $config->password, $config->store);
 
 $response = json_decode(`curl --connect-timeout 20 -s -g '$requestUrl'`);
