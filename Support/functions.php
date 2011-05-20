@@ -41,7 +41,7 @@ function send_asset($api_key, $password, $store ,$xmlFile) {
 
     // Right now, not bothering with dumping the full response/error handling. Will add if it becomes an issue. 
     //We just collect the http_code and will display message if it's Not 200
-    $response = `curl -w'%{http_code}' -s -X PUT --data-binary @"$xmlFile" -H 'Content-Type: application/xml' '$requestUrl'`;
+    $response = `curl --connect-timeout 10 -m 30 -w'%{http_code}' -s -X PUT --data-binary @"$xmlFile" -H 'Content-Type: application/xml' '$requestUrl'`;
     $response = trim($response);
     return $response;
 }
