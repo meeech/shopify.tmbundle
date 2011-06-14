@@ -5,81 +5,11 @@
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/usr/bin/env php
-&lt;?php
-// This one is just for Saving and Uploading a Text based file you working on. 
-if(defined('PHP_WINDOWS_VERSION_MAJOR')){
-	define('IS_WINDOWS', true);
-	
-	$support = getenv('TM_BUNDLE_SUPPORT');
-	$support = `cygpath -w '$support'`; 
-	define('TM_BUNDLE_SUPPORT', trim($support));
-}
-else {
-	define('IS_WINDOWS', false);
-	define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
-}
-
-require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
-require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
-
-echo "&lt;h2&gt;Sending to {$config-&gt;current}&lt;/h2&gt;&lt;h3&gt;{$store}&lt;/h3&gt;";
-
-$selectedFiles = explode("' '",getenv('TM_SELECTED_FILES'));
-foreach ($selectedFiles as $file) {
-
-    $file = trim($file, "'");
-    if(is_dir($file)) {
-        continue;
-    }
-
-    $assetKey = calc_asset_key($file);
-
-    //Get the extension
-    $extension = pathinfo($assetKey, PATHINFO_EXTENSION);
-
-    /*
-    * Windows fix :/
-	* Very weird behaviour/bug? re: making e compat. this is why i didnt want to :/ 
-    * if I var_dump $file, I see
-	* string(92) 
-	* "C:\Documents and Settings\Plank\My Documents\test_project\assets\dupe-to-upload.gif"
-	* This string is actually only 83. So, for some reason, VD outputs the Windows path VISUALLY, but
-    * when I str_split and print_r, you see the value is actually /cygdrive/c/... path! OMFG! WTFBBQ.	 
-    * This was INSANE to track down. Maybe just peculiar to how I'm doing things / install of Cygwin/PHP ???
-    */
-    if(IS_WINDOWS) {
-        $file = trim(`cygpath -w "$file"`);
-    }
-
-    if(in_array($extension, $imageExtensions)) {
-        $filecontents = base64_encode(file_get_contents($file));
-        $reqData = sprintf($xmlDataTempImage, $filecontents, $assetKey);
-    } else {
-        $filecontents = htmlentities(file_get_contents($file), ENT_QUOTES, 'UTF-8');
-        $reqData = sprintf($xmlDataTemp, $filecontents, $assetKey);
-    }
-
-    //Dump the xml into a tmp file
-    $xmlFile = tempnam('/tmp', 'foo').'.xml';
-    file_put_contents($xmlFile, $reqData);
-
-    echo "Sending asset: {$assetKey}...&lt;br&gt;";
-    $response = send_asset($api_key, $password, $store ,$xmlFile);
-
-    if('200' == $response) {
-        echo "Uploaded: {$assetKey}&lt;br&gt;";
-    } else {
-        // Not ideal, but it works. Problem (though not much of one ): 
-        // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
-        // Will robustify if it becomes an issue. 
-        echo "*Error: Could not upload {$assetKey} to {$config-&gt;current}.&lt;br&gt;" ;
-        echo "{$response}&lt;br&gt;";
-    }
-    //And clean up
-    unlink($xmlFile);
-}
-echo 'Done.';
+	<string>#!/usr/bin/env bash
+# Setting up new framework based on what i've learnt working on a new project
+# this file is just a test for it
+source "$TM_SUPPORT_PATH/lib/bash_init.sh"
+"$TM_BUNDLE_SUPPORT/runner.php" assets upload_multi
 </string>
 	<key>input</key>
 	<string>none</string>
