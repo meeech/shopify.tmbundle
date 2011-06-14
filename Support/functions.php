@@ -1,4 +1,34 @@
 <?php
+
+/**
+ * Check if a file is binary.
+ * Uses http://us.php.net/manual/en/ref.fileinfo.php
+ * Falls back to checking an array of common bin file extensions
+ *
+ * @return void
+ **/
+function is_binary($filepath) {
+
+    if(function_exists('finfo_open')) {
+        $finfo = finfo_open(FILEINFO_MIME);
+        $info = explode('charset=', finfo_file($finfo, $filepath));
+    
+        return ('binary' == end($info));
+    }
+
+    //Fallback
+    $binaryExtensions = array(
+        'png', 'gif', 'jpg', 'jpeg',
+        'eot', 'svg', 'ttf', 'woff',
+        'swf'
+    );
+    $extension = pathinfo($filepath, PATHINFO_EXTENSION);
+
+    return in_array($extension, $binaryExtensions);
+
+}
+
+
 /**
  * Request an Asset from Shopify
  *

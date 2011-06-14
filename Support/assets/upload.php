@@ -2,7 +2,7 @@
 $assetKey = calc_asset_key(getenv('TM_FILEPATH')); 
 
 //if its an image file, throw an error message.
-if(in_array(pathinfo($assetKey, PATHINFO_EXTENSION), $binaryExtensions)) {
+if(is_binary(getenv('TM_FILEPATH'))) {
     echo "*Error: This is an image file. Use Send Selected Assets to Shopify instead.";
     exit();
 }

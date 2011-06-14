@@ -17,8 +17,6 @@ else {
 	define('TM_PROJECT_DIRECTORY',getenv('TM_PROJECT_DIRECTORY'));
 }
 
-$binaryExtensions = array('png', 'gif', 'jpg', 'jpeg');
-
 // Ok, api has updated so you can PUT in json, but really no value in re-writing everything
 // so sticking with xml till i have a compelling reason to switch yah? (hate for XML doesn't count as compelling :/ )
 // %1: Data. , %2: ASSET NAME
