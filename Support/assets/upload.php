@@ -1,10 +1,6 @@
 <?php
-define('TM_BUNDLE_SUPPORT',getenv('TM_BUNDLE_SUPPORT'));
-require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'vars.php';
-require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
-
 $assetKey = calc_asset_key(getenv('TM_FILEPATH')); 
-
+var_dump($assetKey);
 //if its an image file, throw an error message.
 if(in_array(pathinfo($assetKey, PATHINFO_EXTENSION), $imageExtensions)) {
     echo "*Error: This is an image file. Use Send Selected Assets to Shopify instead.";
