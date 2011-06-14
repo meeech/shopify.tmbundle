@@ -16,7 +16,7 @@ foreach ($selectedFiles as $file) {
     //Get the extension
     $extension = pathinfo($assetKey, PATHINFO_EXTENSION);
 
-    if(in_array($extension, $imageExtensions)) {
+    if(in_array($extension, $binaryExtensions)) {
         $filecontents = base64_encode(file_get_contents($file));
         $reqData = sprintf($xmlDataTempImage, $filecontents, $assetKey);
     } else {
