@@ -77,6 +77,6 @@ function remove_asset($api_key, $password, $store, $key) {
  * @return void
  **/
 function calc_asset_key($filepath) {
-     $assetKey = implode('/',array_slice(explode('/', $filepath), -2, 2));
-     return $assetKey;
+    $assetKey = str_replace(TM_PROJECT_DIRECTORY.'/', '', $filepath);
+    return $assetKey;
 }
