@@ -3,10 +3,11 @@
 echo "<h2>Sending to {$config->current}</h2><h3>{$store}</h3>";
 
 $selectedFiles = explode("' '",getenv('TM_SELECTED_FILES'));
+
 foreach ($selectedFiles as $file) {
 
     $file = trim($file, "'");
-    if(is_dir($file)) {
+    if(is_dir($file) || empty($file)) {
         continue;
     }
 
