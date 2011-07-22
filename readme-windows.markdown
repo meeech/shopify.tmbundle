@@ -22,7 +22,7 @@ My Setup
 Usage
 -----
 
-See general usage instructions in the [readme](https://github.com/meeech/shopify.tmbundle/blob/windows-compat/readme.markdown).
+See general usage instructions in the [readme](https://github.com/meeech/shopify.tmbundle/blob/master/readme.markdown).
 
 * You need to make sure the **project pane** is active, or it can't pick up proper info on where it need to run [img](http://meeech.github.com/img/project-pane.png) 
 
