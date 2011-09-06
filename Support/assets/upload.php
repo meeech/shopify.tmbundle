@@ -7,7 +7,7 @@ if(is_binary(getenv('TM_FILEPATH'))) {
     exit();
 }
 
-$filecontents = htmlentities(file_get_contents('php://stdin'), ENT_QUOTES, 'UTF-8');
+$filecontents = htmlspecialchars(file_get_contents('php://stdin'), ENT_QUOTES, 'UTF-8');
 $reqData = sprintf($xmlDataTemp, $filecontents, $assetKey);
 
 //Dump the xml into a tmp file
