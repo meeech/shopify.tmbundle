@@ -20,7 +20,7 @@ foreach ($selectedFiles as $file) {
         $filecontents = base64_encode(file_get_contents($file));
         $reqData = sprintf($xmlDataTempImage, $filecontents, $assetKey);
     } else {
-        $filecontents = htmlentities(file_get_contents($file), ENT_QUOTES, 'UTF-8');
+        $filecontents = htmlspecialchars(file_get_contents($file), ENT_QUOTES, 'UTF-8');
         $reqData = sprintf($xmlDataTemp, $filecontents, $assetKey);
     }
 
