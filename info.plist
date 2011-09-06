@@ -4,6 +4,11 @@
 <dict>
 	<key>mainMenu</key>
 	<dict>
+		<key>excludedItems</key>
+		<array>
+			<string>25889F17-382C-4A90-87B3-F594690AAAA9</string>
+			<string>249D31B1-15E7-436B-93CB-4442A73A04AD</string>
+		</array>
 		<key>items</key>
 		<array>
 			<string>D5E756C3-A250-4540-9E73-2F2EDE898E21</string>
@@ -27,14 +32,25 @@
 			<string>------------------------------------</string>
 			<string>4F6BEE2B-2211-4C0A-8244-11011E1DFA84</string>
 			<string>------------------------------------</string>
+			<string>30F875C5-3E33-4C70-AFA9-035ADD949A1D</string>
+			<string>960AB5C6-1335-48C1-B66A-5D55AE7F4081</string>
+			<string>------------------------------------</string>
 			<string>72860921-CCDC-4390-8B9A-36491BFCAE83</string>
 			<string>F11BA60E-2FFE-418D-AB08-C4A8A7249421</string>
 			<string>------------------------------------</string>
-			<string>25889F17-382C-4A90-87B3-F594690AAAA9</string>
-			<string>249D31B1-15E7-436B-93CB-4442A73A04AD</string>
 		</array>
 		<key>submenus</key>
 		<dict>
+			<key>30F875C5-3E33-4C70-AFA9-035ADD949A1D</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>94656721-A034-41C7-BBA6-5A9A939E1BD2</string>
+					<string>31E7116A-ADCA-4555-85E0-17527544C4D8</string>
+				</array>
+				<key>name</key>
+				<string>Assets</string>
+			</dict>
 			<key>72860921-CCDC-4390-8B9A-36491BFCAE83</key>
 			<dict>
 				<key>items</key>
@@ -44,6 +60,17 @@
 				</array>
 				<key>name</key>
 				<string>Config</string>
+			</dict>
+			<key>960AB5C6-1335-48C1-B66A-5D55AE7F4081</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>072D3F35-1008-4C56-BA98-3214BDFABEA1</string>
+					<string>E322B431-C207-4623-A2E9-B5DCB4E3D296</string>
+					<string>8D755637-45BD-4F01-9947-32AF070B12A4</string>
+				</array>
+				<key>name</key>
+				<string>Settings</string>
 			</dict>
 			<key>F11BA60E-2FFE-418D-AB08-C4A8A7249421</key>
 			<dict>
@@ -78,6 +105,11 @@
 		<string>C6A4CEB8-8A02-413C-8F36-C7E8F38E74C1</string>
 		<string>25889F17-382C-4A90-87B3-F594690AAAA9</string>
 		<string>249D31B1-15E7-436B-93CB-4442A73A04AD</string>
+		<string>072D3F35-1008-4C56-BA98-3214BDFABEA1</string>
+		<string>E322B431-C207-4623-A2E9-B5DCB4E3D296</string>
+		<string>8D755637-45BD-4F01-9947-32AF070B12A4</string>
+		<string>94656721-A034-41C7-BBA6-5A9A939E1BD2</string>
+		<string>31E7116A-ADCA-4555-85E0-17527544C4D8</string>
 	</array>
 	<key>uuid</key>
 	<string>AF27C8F0-5702-4317-82AD-63A4F55CFAAA</string>

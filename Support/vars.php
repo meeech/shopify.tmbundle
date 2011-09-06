@@ -8,14 +8,7 @@ $api_key = $config->api_key;    //getenv('SHOPIFY_API_KEY');
 $password = $config->password;  //getenv('SHOPIFY_PASSWORD');
 $store = $config->store;        //getenv('SHOPIFY_STORE');
 
-if(defined('PHP_WINDOWS_VERSION_MAJOR')) {
-    $project_folder = getenv('TM_PROJECT_DIRECTORY');
-    $project_folder = `cygpath -w '$project_folder'`; 
-    define('TM_PROJECT_DIRECTORY', trim($project_folder));
-} 
-else {
-	define('TM_PROJECT_DIRECTORY',getenv('TM_PROJECT_DIRECTORY'));
-}
+define('TM_PROJECT_DIRECTORY',getenv('TM_PROJECT_DIRECTORY'));
 
 // Ok, api has updated so you can PUT in json, but really no value in re-writing everything
 // so sticking with xml till i have a compelling reason to switch yah? (hate for XML doesn't count as compelling :/ )

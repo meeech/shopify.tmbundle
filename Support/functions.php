@@ -28,6 +28,26 @@ function is_binary($filepath) {
 
 }
 
+/**
+ * Output error from XML curl response
+ *
+ * @param string $response response from curl request that error'd
+ * @param array $options array of options yo.
+ * @return void
+ **/
+function output_error($response, $options = array()) {
+
+    $options = $options + array('line_break'=> "\n");
+
+    //Clean off the response - comes with http code attached
+    $response = substr($response, 0, (strripos($response, '>')+1));
+    // echo $response;
+    $xml = new SimpleXMLElement($response);
+    $errors = $xml->xpath('/errors/error');
+    foreach ($errors as $error) {
+      echo $options['line_break']."{$error}";
+    }
+}
 
 /**
  * Request an Asset from Shopify

@@ -23,6 +23,7 @@ if('200' == $response) {
     // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
     // Will robustify if it becomes an issue. 
     echo "*Error: Could not upload {$assetKey} to {$config->current}." ;
+    output_error($response);
 }
 //And clean up
 unlink($xmlFile);

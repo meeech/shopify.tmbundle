@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;tr&gt;
+  &lt;th&gt;&lt;label for="${2:field_name}"&gt;${1:Display Name}&lt;/label&gt;&lt;/th&gt;
+  &lt;td&gt;&lt;textarea id="$2" name="$2" cols="${3:60}" rows="${4:5}"&gt;&lt;/textarea&gt;&lt;/td&gt;
+&lt;/tr&gt;
+$0</string>
+	<key>name</key>
+	<string>setting: multi line</string>
+	<key>scope</key>
+	<string>text.html.liquid</string>
+	<key>tabTrigger</key>
+	<string>setting</string>
+	<key>uuid</key>
+	<string>E322B431-C207-4623-A2E9-B5DCB4E3D296</string>
+</dict>
+</plist>

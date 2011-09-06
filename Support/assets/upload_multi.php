@@ -37,8 +37,8 @@ foreach ($selectedFiles as $file) {
         // Not ideal, but it works. Problem (though not much of one ): 
         // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
         // Will robustify if it becomes an issue. 
-        echo "*Error: Could not upload {$assetKey} to {$config->current}.<br>" ;
-        echo "{$response}<br>";
+        echo "*Error: Could not upload {$assetKey} to {$config->current}." ;
+        output_error($response, array('line_break' => '<br>'));
     }
     //And clean up
     unlink($xmlFile);
