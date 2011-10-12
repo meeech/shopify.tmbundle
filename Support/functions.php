@@ -58,12 +58,19 @@ function output_error($response, $options = array()) {
  * @param string $key Key of asset we are downloading
  * @return object Asset / false on failure
  **/
-function get_asset($api_key, $password, $store, $key) {
+function get_asset($api_key, $password, $store, $theme_id, $key) {
     //Request Asset URL Template
     // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
-                    $api_key, $password, $store, $key
-                );
+    if ($theme_id == "") {
+        $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+                        $api_key, $password, $store, $key
+                    );
+    }
+    else {
+        $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.json?asset[key]=%5$s',
+                        $api_key, $password, $store, $theme_id, $key
+                    );
+    }
 
     $responseTxt = `curl -s -g '$requestUrl'`;
     $response = json_decode($responseTxt);
@@ -83,11 +90,18 @@ function get_asset($api_key, $password, $store, $key) {
  * @param string $xmlFile Path to the XML File with the contents to upload.
  * @return string
  **/
-function send_asset($api_key, $password, $store ,$xmlFile) {
+function send_asset($api_key, $password, $store, $theme_id, $xmlFile) {
 
-    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.xml', 
-            $api_key, $password, $store
-        );
+    if ($theme_id == "") {
+      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.xml', 
+              $api_key, $password, $store
+          );
+    }
+    else {
+      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.xml', 
+              $api_key, $password, $store, $theme_id
+          );
+    }
 
     // Right now, not bothering with dumping the full response/error handling. Will add if it becomes an issue. 
     //We just collect the http_code and will display message if it's Not 200
@@ -105,12 +119,19 @@ function send_asset($api_key, $password, $store ,$xmlFile) {
  * @param string $key Key of asset we are downloading
  * @return object Asset / false on failure
  **/
-function remove_asset($api_key, $password, $store, $key) {
+function remove_asset($api_key, $password, $store, $theme_id, $key) {
     //Request Asset URL Template
     // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
-                    $api_key, $password, $store, $key
-                );
+    if ($theme_id == "") {
+      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+                      $api_key, $password, $store, $key
+                  );
+    }
+    else {
+      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.json?asset[key]=%5$s',
+                      $api_key, $password, $store, $theme_id, $key
+                  );
+    }
                 
     $response = json_decode(`curl -w'%{http_code}' -X DELETE -s -g '$requestUrl'`);
 
