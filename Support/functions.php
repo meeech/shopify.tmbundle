@@ -28,6 +28,11 @@ function is_binary($filepath) {
 
 }
 
+// pull the http respone code from the response string
+function response_code($response) {
+    return substr($response, -3);
+}
+
 /**
  * Output error from XML curl response
  *
@@ -39,6 +44,8 @@ function output_error($response, $options = array()) {
 
     $options = $options + array('line_break'=> "\n");
 
+    $http_code = response_code($response);
+    
     //Clean off the response - comes with http code attached
     $response = substr($response, 0, (strripos($response, '>')+1));
     // echo $response;
@@ -47,6 +54,7 @@ function output_error($response, $options = array()) {
     foreach ($errors as $error) {
       echo $options['line_break']."{$error}";
     }
+    echo $options['line_break']."{$http_code}";
 }
 
 /**

@@ -31,7 +31,7 @@ foreach ($selectedFiles as $file) {
     echo "Sending asset: {$assetKey}...<br>";
     $response = send_asset($api_key, $password, $store ,$xmlFile);
 
-    if('200' == $response) {
+    if('200' == response_code($response)) {
         echo "Uploaded: {$assetKey}<br>";
     } else {
         // Not ideal, but it works. Problem (though not much of one ): 

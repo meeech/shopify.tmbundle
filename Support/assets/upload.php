@@ -16,7 +16,7 @@ file_put_contents($xmlFile, $reqData);
 
 $response = send_asset($api_key, $password, $store ,$xmlFile);
 
-if('200' == $response) {
+if('200' == response_code($response)) {
     echo "Uploaded {$assetKey} to {$config->current}.";
 } else {
     // Not ideal, but it works. Problem (though not much of one ): 
