@@ -120,9 +120,9 @@ function remove_asset($api_key, $password, $store, $key) {
                     $api_key, $password, $store, $key
                 );
                 
-    $response = json_decode(`curl -w'%{http_code}' -X DELETE -s -g '$requestUrl'`);
+    $response = `curl -w'%{http_code}' -X DELETE -s -g '$requestUrl'`;
 
-    if($response == 200) {
+    if(response_code($response) == 200) {
         return true;
     } 
     return false;
