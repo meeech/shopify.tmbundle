@@ -36,7 +36,7 @@ if(false !== strpos($filepath, '.css.liquid')) {
 
 echo "Fetching {$filepath}...&lt;br&gt;";
 
-$asset = get_asset($api_key, $password, $store, $filepath);
+$asset = get_asset($api_key, $password, $store, $theme_id, $filepath);
 
 if(false == $asset) { //Do Nothing.
     echo '*Error: Could not get '. $filepath .'&lt;br&gt;';

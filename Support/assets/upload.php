@@ -14,7 +14,7 @@ $reqData = sprintf($xmlDataTemp, $filecontents, $assetKey);
 $xmlFile = tempnam('/tmp', 'foo').'.xml';
 file_put_contents($xmlFile, $reqData);
 
-$response = send_asset($api_key, $password, $store ,$xmlFile);
+$response = send_asset($api_key, $password, $store , $theme_id, $xmlFile);
 
 if('200' == response_code($response)) {
     echo "Uploaded {$assetKey} to {$config->current}.";
