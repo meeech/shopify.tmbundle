@@ -24,7 +24,7 @@ require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 	<key>keyEquivalent</key>
 	<string>^h</string>
 	<key>name</key>
-	<string>Wiki: Liquid (TM Only)</string>
+	<string>Wiki: Liquid</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
