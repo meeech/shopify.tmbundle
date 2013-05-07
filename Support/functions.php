@@ -69,7 +69,7 @@ function output_error($response, $options = array()) {
 function get_asset($api_key, $password, $store, $key) {
     //Request Asset URL Template
     // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+    $requestUrl = sprintf('https://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
                     $api_key, $password, $store, $key
                 );
 
@@ -93,7 +93,7 @@ function get_asset($api_key, $password, $store, $key) {
  **/
 function send_asset($api_key, $password, $store ,$xmlFile) {
 
-    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.xml', 
+    $requestUrl = sprintf('https://%1$s:%2$s@%3$s/admin/assets.xml', 
             $api_key, $password, $store
         );
 
@@ -116,7 +116,7 @@ function send_asset($api_key, $password, $store ,$xmlFile) {
 function remove_asset($api_key, $password, $store, $key) {
     //Request Asset URL Template
     // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-    $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+    $requestUrl = sprintf('https://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
                     $api_key, $password, $store, $key
                 );
                 

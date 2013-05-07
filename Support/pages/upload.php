@@ -8,7 +8,7 @@ $page = array('page' => array(
 
 $payload = Escape::sh(json_encode($page));
 
-$requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/pages/%4$s.json';
+$requestUrlTemp = 'https://%1$s:%2$s@%3$s/admin/pages/%4$s.json';
 $requestUrl = sprintf($requestUrlTemp, $config->api_key, $config->password, $config->store, $page_id);
 // 
 $response = `curl --connect-timeout 20 -X PUT -s -g '$requestUrl' -H 'Content-Type: application/json' --data-binary $payload`;
