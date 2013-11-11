@@ -17,12 +17,18 @@ file_put_contents($xmlFile, $reqData);
 $response = send_asset($api_key, $password, $store ,$xmlFile);
 
 if('200' == response_code($response)) {
-    echo "Uploaded {$assetKey} to {$config->current}.";
+
+	/* Add by Dale Tournemille 2013. This invokes terminal-notifier (by Eloy Durán) and displays the success upload message using OS X Notification Center. */
+	echo "Uploaded {$assetKey} to {$config->current}.";
+	echo exec("/usr/local/bin/terminal-notifier -title 'File Uploaded' -message 'The file {$assetKey} has been uploaded to your {$config->current} theme on Shopify.' -sender com.macromates.TextMate.preview");
+
+	
 } else {
     // Not ideal, but it works. Problem (though not much of one ): 
     // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
     // Will robustify if it becomes an issue. 
     echo "*Error: Could not upload {$assetKey} to {$config->current}." ;
+	echo exec("/usr/local/bin/terminal-notifier -title 'Upload Error' -message 'Houston, we have a problem. The file {$assetKey} was NOT uploaded to {$config->current}.' -sender com.macromates.TextMate.preview");
     output_error($response);
 }
 //And clean up

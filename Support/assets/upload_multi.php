@@ -33,11 +33,13 @@ foreach ($selectedFiles as $file) {
 
     if('200' == response_code($response)) {
         echo "Uploaded: {$assetKey}<br>";
+		echo exec("/usr/local/bin/terminal-notifier -title 'File Uploaded' -message 'The file {$assetKey} has been uploaded to Shopify.' -sender com.macromates.TextMate.preview");
     } else {
         // Not ideal, but it works. Problem (though not much of one ): 
         // response on a fail will return the full curl page: ie, shopify 404 full html, + error code at the bottom
         // Will robustify if it becomes an issue. 
         echo "*Error: Could not upload {$assetKey} to {$config->current}." ;
+			echo exec("/usr/local/bin/terminal-notifier -title 'Upload Error' -message 'Houston, we have a problem. The file {$assetKey} was NOT uploaded to {$config->current}.' -sender com.macromates.TextMate.preview");
         output_error($response, array('line_break' => '<br>'));
     }
     //And clean up
