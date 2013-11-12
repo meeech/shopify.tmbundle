@@ -1,10 +1,10 @@
 Shopify Textmate Bundle (now compatible with e-texteditor)
 ==========================================================
 
-Nov. 10, 2013 - Notification Center support:
+Nov. 10, 2013 - Notification Center support in OS X Mavericks
 --------------
 
-* This fork include support for Notification Center in OS X Mavericks. To use it, you must have terminal-notifier installed. You must also be using the latest preview edition of TextMate.
+* This fork include support for Notification Center in OS X Mavericks. To use it, you must have the gem "terminal-notifier" installed (if you're using homebrew, just type $brew install terminal-notifier). You must also be using the latest preview edition of TextMate.
 
 
 Available Commands:
