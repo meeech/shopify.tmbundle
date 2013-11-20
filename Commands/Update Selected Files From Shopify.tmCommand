@@ -36,7 +36,7 @@ foreach ($selectedFiles as $file) {
     $assetKey = calc_asset_key($file);
     echo "Fetching {$assetKey}...&lt;br&gt;";
     
-    $asset = get_asset($api_key, $password, $store, $theme_id, $assetKey);
+    $asset = get_asset($api_key, $password, $store, $assetKey);
 
     if(false == $asset) { //Do Nothing.
         echo '*Error: Could not update asset '. $assetKey .'&lt;br&gt;';

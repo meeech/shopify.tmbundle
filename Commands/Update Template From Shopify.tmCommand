@@ -27,7 +27,7 @@ require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 // File path, based on theme restriction of no nested folder, so we make certain assumptions
 $filepath = calc_asset_key(getenv('TM_FILEPATH')); 
 
-$asset = get_asset($api_key, $password, $store, $theme_id, $filepath);
+$asset = get_asset($api_key, $password, $store, $filepath);
 
 // clean out the \r 's - mac uses \n only. 
 if(false !== $asset &amp;&amp; property_exists($asset, 'value')) {

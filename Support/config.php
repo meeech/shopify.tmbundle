@@ -18,8 +18,6 @@ class mConfig {
     
     var $store = null;
     
-    var $theme_id = null;
-    
     //Used to output to user what shop they are pushing to. Reads better than full shop name.
     var $current = 'default';
     
@@ -35,7 +33,6 @@ class mConfig {
             $this->api_key  = getenv('SHOPIFY_API_KEY');
             $this->password = getenv('SHOPIFY_PASSWORD');
             $this->store    = getenv('SHOPIFY_STORE');
-            $this->theme_id = getenv('SHOPIFY_THEME_ID');
 
             if( (!$this->api_key) || (!$this->password) || (!$this->store) ) {
                 echo "No config file found here: {$path} ?";

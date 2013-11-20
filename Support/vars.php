@@ -7,7 +7,6 @@ $config = new mConfig(CONFIG_FILE_PATH);
 $api_key = $config->api_key;    //getenv('SHOPIFY_API_KEY');
 $password = $config->password;  //getenv('SHOPIFY_PASSWORD');
 $store = $config->store;        //getenv('SHOPIFY_STORE');
-$theme_id = $config->theme_id;
 
 define('TM_PROJECT_DIRECTORY',getenv('TM_PROJECT_DIRECTORY'));
 

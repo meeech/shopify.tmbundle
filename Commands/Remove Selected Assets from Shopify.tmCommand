@@ -37,7 +37,7 @@ foreach ($selectedFiles as $file) {
     $assetKey = calc_asset_key($file);
     echo "Removing $assetKey... ";
     
-    if(remove_asset($api_key, $password, $store, $theme_id, $assetKey)) {
+    if(remove_asset($api_key, $password, $store, $assetKey)) {
         echo "removed¡&lt;br&gt;";
     }
     else {

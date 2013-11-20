@@ -28,6 +28,11 @@ function is_binary($filepath) {
 
 }
 
+// pull the http respone code from the response string
+function response_code($response) {
+    return substr($response, -3);
+}
+
 /**
  * Output error from XML curl response
  *
@@ -39,6 +44,8 @@ function output_error($response, $options = array()) {
 
     $options = $options + array('line_break'=> "\n");
 
+    $http_code = response_code($response);
+    
     //Clean off the response - comes with http code attached
     $response = substr($response, 0, (strripos($response, '>')+1));
     // echo $response;
@@ -47,6 +54,7 @@ function output_error($response, $options = array()) {
     foreach ($errors as $error) {
       echo $options['line_break']."{$error}";
     }
+    echo $options['line_break']."{$http_code}";
 }
 
 /**
@@ -58,19 +66,12 @@ function output_error($response, $options = array()) {
  * @param string $key Key of asset we are downloading
  * @return object Asset / false on failure
  **/
-function get_asset($api_key, $password, $store, $theme_id, $key) {
+function get_asset($api_key, $password, $store, $key) {
     //Request Asset URL Template
     // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-    if ($theme_id == "") {
-        $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
-                        $api_key, $password, $store, $key
-                    );
-    }
-    else {
-        $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.json?asset[key]=%5$s',
-                        $api_key, $password, $store, $theme_id, $key
-                    );
-    }
+    $requestUrl = sprintf('https://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+                    $api_key, $password, $store, $key
+                );
 
     $responseTxt = `curl -s -g '$requestUrl'`;
     $response = json_decode($responseTxt);
@@ -90,18 +91,11 @@ function get_asset($api_key, $password, $store, $theme_id, $key) {
  * @param string $xmlFile Path to the XML File with the contents to upload.
  * @return string
  **/
-function send_asset($api_key, $password, $store, $theme_id, $xmlFile) {
+function send_asset($api_key, $password, $store ,$xmlFile) {
 
-    if ($theme_id == "") {
-      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.xml', 
-              $api_key, $password, $store
-          );
-    }
-    else {
-      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.xml', 
-              $api_key, $password, $store, $theme_id
-          );
-    }
+    $requestUrl = sprintf('https://%1$s:%2$s@%3$s/admin/assets.xml', 
+            $api_key, $password, $store
+        );
 
     // Right now, not bothering with dumping the full response/error handling. Will add if it becomes an issue. 
     //We just collect the http_code and will display message if it's Not 200
@@ -119,23 +113,16 @@ function send_asset($api_key, $password, $store, $theme_id, $xmlFile) {
  * @param string $key Key of asset we are downloading
  * @return object Asset / false on failure
  **/
-function remove_asset($api_key, $password, $store, $theme_id, $key) {
+function remove_asset($api_key, $password, $store, $key) {
     //Request Asset URL Template
     // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-    if ($theme_id == "") {
-      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
-                      $api_key, $password, $store, $key
-                  );
-    }
-    else {
-      $requestUrl = sprintf('http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.json?asset[key]=%5$s',
-                      $api_key, $password, $store, $theme_id, $key
-                  );
-    }
+    $requestUrl = sprintf('https://%1$s:%2$s@%3$s/admin/assets.json?asset[key]=%4$s',
+                    $api_key, $password, $store, $key
+                );
                 
-    $response = json_decode(`curl -w'%{http_code}' -X DELETE -s -g '$requestUrl'`);
+    $response = `curl -w'%{http_code}' -X DELETE -s -g '$requestUrl'`;
 
-    if($response == 200) {
+    if(response_code($response) == 200) {
         return true;
     } 
     return false;
