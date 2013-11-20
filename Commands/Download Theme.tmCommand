@@ -7,7 +7,6 @@
 	<key>command</key>
 	<string>#!/usr/bin/env php
 &lt;?php
-
 //Kinda sucks, but this will need to be in each script, as opposed to be loaded
 //Make some assumptions if running under windows. 
 //This is for compat with Environment: Cygwin generic mode, which gives us access to curl
@@ -30,8 +29,14 @@ require_once TM_BUNDLE_SUPPORT.DIRECTORY_SEPARATOR.'functions.php';
 
 //Request Asset URL Template
 // %1: API KEY, %2: PASSWORD, %3: STORE, %4: ASSET NAME
-$requestUrlTemp = 'https://%1$s:%2$s@%3$s/admin/assets.json';
-$requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store);
+if ($theme_id == "") {
+  $requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/assets.json';
+  $requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store);
+}
+else {
+  $requestUrlTemp = 'http://%1$s:%2$s@%3$s/admin/themes/%4$s/assets.json';
+  $requestUrl = sprintf($requestUrlTemp, $api_key, $password, $store, $theme_id);
+}
 
 // yes, I am aware php has curl. This is just simpler.
 echo "Getting theme asset list...&lt;br&gt;";
@@ -68,7 +73,7 @@ foreach ($assetFiles as $file) {
     }
 
     echo "Fetching {$file}...&lt;br&gt;";
-    $asset = get_asset($api_key, $password, $store, $file);
+    $asset = get_asset($api_key, $password, $store, $theme_id, $file);
     
     if(false === $asset) {
         echo "*Error fetching: ($file)&lt;br&gt;";

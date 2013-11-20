@@ -16,7 +16,7 @@ source "$TM_SUPPORT_PATH/lib/bash_init.sh"
 	<key>name</key>
 	<string>Test: New Framework</string>
 	<key>output</key>
-	<string>showAsHTML</string>
+	<string>openAsNewDocument</string>
 	<key>uuid</key>
 	<string>25889F17-382C-4A90-87B3-F594690AAAA9</string>
 </dict>
