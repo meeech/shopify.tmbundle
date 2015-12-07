@@ -9,6 +9,14 @@
 # Setting up new framework based on what i've learnt working on a new project
 # this file is just a test for it
 source "$TM_SUPPORT_PATH/lib/bash_init.sh"
+
+# If there isn't a project directory there's no folder to download to.
+if [ -z $TM_PROJECT_DIRECTORY ]
+then
+    echo "Error: You may only download the pages to a project folder. Create the a project folder in TextMate and try again."
+    exit
+fi
+
 "$TM_BUNDLE_SUPPORT/runner.php" pages download_all
 rescan_project</string>
 	<key>input</key>
