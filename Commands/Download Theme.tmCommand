@@ -8,6 +8,12 @@
 	<string>#!/usr/bin/env php
 &lt;?php
 
+// If there isn't a project directory there's no folder to download to.
+if (is_null($_ENV['TM_PROJECT_DIRECTORY'])) {
+    echo "Error: You may only download a theme to a project folder. Create a project folder in TextMate and try again.";
+    die();
+}
+
 //Kinda sucks, but this will need to be in each script, as opposed to be loaded
 //Make some assumptions if running under windows. 
 //This is for compat with Environment: Cygwin generic mode, which gives us access to curl
